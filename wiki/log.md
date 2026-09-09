@@ -240,3 +240,22 @@ title: Operation Log
 [2026-09-15 01:21] UPDATE: wiki/concepts/lunaverse-ide-release-and-operations.md — 最终对齐 442fd5369，撤回资料不作现行规范。
 [2026-09-15 01:21] UPDATE: wiki/syntheses/lunaverse-ide-calibration-2026-09.md — 最终对齐 442fd5369，撤回资料不作现行规范。
 [2026-09-15 01:21] UPDATE: wiki/index.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-08-27 14:30] INGEST: raw/find-your-li-content-prd-v1.md + raw/find-your-li-content-tech-design-v1.md — Find Your LI（RC 匹配测试）内容改版 PRD v1.0 与技术方案 v1.0（源文档在项目仓库 what-li-is-made-for-you/docs/）。
+[2026-08-27 14:30] CREATE: concepts/find-your-li-content-redesign-2026-08 — 2026-08-27 内容审查结论（模板填空结果页 / 题库信号失衡 / 无社交货币 / 中文混入 bug）+ v1.0 改版方案要点（15 题题库、100 角色内容库、稀有度、roast、questions.json 单源、vm 加载防漂移）+ 离线验收指标。
+[2026-08-27 14:30] UPDATE: wiki/index.md — register concepts/find-your-li-content-redesign-2026-08（Concepts，按字母序插在 dreaming-universe 与 four-layer-philosophy 之间）+ bump updated 到 2026-08-27。
+[2026-08-27 18:20] UPDATE: concepts/find-your-li-content-redesign-2026-08 — 补「实施结果」：v1.0 改版当天全部交付（题库 v2.0 / 100 角色内容库 / 池精修 / 结果页 v2 / 分享卡 v2），验收 max 4.58% · top10 31.8% · CJK 0 · 回归 5/5；记录死信号清除、roast 方向 bug、3 处池数据修正、轮换参数 0.07/20。
+[2026-08-27 19:05] UPDATE: concepts/find-your-li-content-redesign-2026-08 — v1.2 稀有度重定义：模拟值不再面向用户，新增 server/server.mjs（静态托管 + /api/track + /api/rarity，Railway Postgres / 本地 JSON 双模存储），完测 <100 展示「你是第 N 位」；匹配规则说明已整理成飞书文档 APTrdfun7osWQQxk1LkcVJpKnAg。
+[2026-08-28 15:10] UPDATE: concepts/find-your-li-content-redesign-2026-08 — 20 人格实测闭环（test-run-003）：首轮分享意愿 6.30，定位模板中段/负方向文案 bug/题面歧义 3 处；修复（九维双向文案、理由重构、100 角色专属 GIVES-RECEIVES、题库 v2.2）后 8 人复测 +9 分，<5 分区间清零。遗留：轮换准入贴合度门槛（下轮立项）。
+[2026-08-28 18:40] UPDATE: concepts/find-your-li-content-redesign-2026-08 — 题库定稿 v6.0：采用 wangbo 与 GPT 共创的 24 题 v0.9（评审意见：整体优于此前版本；补一道雷区题成 25 题），Claude 完成 100 个选项的信号标注、配平（全过）、蒙特卡洛（max 4.99% / top10 31.2% / 覆盖 100/100）、页面 15→25 题接入、20 人格重测（16 个不同结果）。
+[2026-08-28 20:10] UPDATE: concepts/find-your-li-content-redesign-2026-08 — 新增 v1.1 路线图（项目 docs/roadmap-v1.1.md）：P0 七项（分享埋点补齐/打标规范/轮换门槛/删闲置权重/全链路复测/Railway 部署/生产冒烟），P1 六项（日报脚本/题项分析/方法论页/三价值重组提案/角色精修二轮/OG 图），P2 视数据五项。盲标复核已纳入题库变更流程（首轮一致率 83% 部分重合、4 方向冲突已裁决修正）。
+[2026-08-28 21:30] UPDATE: concepts/find-your-li-content-redesign-2026-08 — 项目交接文档已建（飞书 FIdZdQNrVoKDDmxS2Auc8E7znFd），交接对象 Codex：五条红线（题面不改/无剧透/缓存版本号/commit 需允许/稀有度真实数据）、架构与两表 schema、打标规则含盲标强制工序、roadmap P0-P2 现状（P0-1 已完成）。
+[2026-08-28 22:20] UPDATE: concepts/find-your-li-content-redesign-2026-08 — 应 Codex 质询产出交接证据文档（项目 docs/handoff-evidence.md + docs/evidence/ 24 件原始记录）：P0-3/4 授权复核为弱确认改标待确认；盲标 4 冲突原始对照与裁决理由；模拟数字完整可复现（脚本+种子+输出归档）；如实记录未验证项（真机浏览器矩阵零测试、服务端无限流）与证据损失（内容生成批次 notes 已随临时目录清理丢失）；top33 人工精修确认为 0/33。
+[2026-09-08 20:30] INGEST: raw/2026-09-08-poster-reference-matching-tagging-design.md → concepts/poster-reference-matching-tagging — 海报参考匹配打标方案 v0.1，待 wangbo 审定（模型路线/relation/transfer/分辨率/参考图用途五项待定）
+[2026-09-09 04:14] UPDATE: concepts/poster-reference-matching-tagging — v0.2 已实施：打标换网关 grok-4.6（豆包数人数会把画中人和狗算进去且拉不到 R2），物件改开放提取，relation/transfer 删除，jina 向量接入，全量 4538 张 10.19 美元，两部样本作品简报落到各自 08-poster-reference/brief.md；raw 新增 2026-09-09-poster-reference-matching-v0.2-implemented.md
+[2026-09-09 04:30] CREATE: entities/mobai-image-site from raw/2026-09-09-mobai-image-site-design.md
+[2026-09-09 14:40] UPDATE: entities/mobai-image-site 计划 2、3 完成，补生成链路实现说明
+[2026-09-09 15:40] UPDATE: entities/mobai-image-site 界面改为 Midjourney 深色版，真实联调结果
+[2026-09-09 16:00] UPDATE: entities/mobai-image-site R2 接通与带参考图真实联调
+[2026-09-09 08:54] INGEST: raw/2026-09-09-poster-ref-site-design.md → entities/lunaverse-poster-ref-site — 海报参考站设计说明（wangbo 五项决定：底子 Novel Library、飞书应用共用、画像不阻塞可编辑重跑、源文件不存库、首任管理员 wangbo）
+[2026-09-09 09:23] UPDATE: entities/lunaverse-poster-ref-site — 网站本地跑通（飞书登录栈、海报库灌入、画像抽取、匹配、终选、结果页、记录页、管理员页、重跑、简报下载），端到端 5 分钟 0.38 美元；待 commit 与 Railway 部署
+[2026-09-09 16:45] UPDATE: entities/mobai-image-site 上线 Railway，Impasto Arcane 正脸联调

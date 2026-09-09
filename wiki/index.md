@@ -45,6 +45,7 @@ Welcome to the team knowledge base.
 - [[concepts/dream-trigger-v2-mechanical]] — Producer-side dream trigger v2 (2026-05-21): pure-mechanical evaluator (no LLM) — UserNovelProfile vector + weighted running mean + cosine drift + sharpness gates, replaces v1 single-gate. Drops phase dedup; first-dream保送 keeps committed_success ≥ 3.
 - [[concepts/dreaming-universe]] — 玩家画像触发的共享 Dream 支线宇宙：Episode graph + assignment-gated overlay + Python dream-agent
 - [[concepts/episode-writer-music-strategy]] — 历史｜Episode Writer · BGM 策略 & music-normalizer 流程；非当前 IDE 执行指南
+- [[concepts/find-your-li-content-redesign-2026-08]] — Find Your LI（RC 匹配测试引流页）2026-08 内容改版：审查结论（模板填空结果页 / 题库信号失衡 stability+ 24:6 / 78% 用户同卡 / 中文混入 bug）+ v1.0 方案（15 题重制、100 角色专属内容库、稀有度蒙特卡洛、roast line、questions.json 单源 + vm 加载防双实现漂移）
 - [[concepts/four-layer-philosophy]] — SKILL / CLI / MCP / API Four-Layer Philosophy；本轮核对 IDE 关联边界，其余原日期记录
 - [[concepts/frame-interpolation-spec]] — 历史｜角色表情插帧实施方案；非当前 IDE 执行指南
 - [[concepts/gateway-bypass-and-origin-lockdown-2026-06-10]] — Gateway-bypass + Origin lockdown cutover 2026-06-10
@@ -78,6 +79,7 @@ Welcome to the team knowledge base.
 - [[concepts/supabase-backend-bootstrap]] — 2026-05-29 backend 生产 Postgres 切 Supabase；fresh-bootstrap 流程（`db push + raw contract SQL`，`BOOTSTRAP_TARGET_DB_NAME` 防呆）；migration 是增量补丁、不支持空库 replay（2026-04-27 option A 决策）；灾备走 DB 备份 / restore
 - [[concepts/unfolded-visual-novel]] — Unfolded 风格互动视觉小说展示形态与素材管线
 - [[concepts/villain-season-demo]] — 恶人季 Heart Signal NA otome 短剧 demo（3 EP + 1 dream，双语 EN+ZH 平行 novel，autoAssign + bonus_only 强制 dream，22 SFX/7 角色/6 BG/3 BGM，英文 Breeze 配音 + TTS 上 R2，机制全覆盖含 Remix/Dream/signal/affection/butterfly/achievement/trick/minigame）
+- [[concepts/poster-reference-matching-tagging]] — 海报参考匹配与打标 v0.2 已实施（2026-09-09）：4538 张 IMP 海报用网关 grok-4.6 打匹配标签（人数/年龄/时代/场景/情绪封闭，物件与主体开放），jina 向量比对，grok 终选 5 张；全量 10.19 美元 3 小时；Cornered Beast 与 Heir 两部样本简报已出；豆包与 Claude API 弃用；飞书 UVSDdJCwJoxy0WxiupFch914neb
 
 ## Entities
 
@@ -96,8 +98,10 @@ Welcome to the team knowledge base.
 - [[entities/mob-mini-agent]] — Pi-based company Agent foundation with Moonshot runtime practices, observability, and compaction safety
 - [[entities/mob-sandbox-ops]] — Self-hosted Daytona/OpenHands/Claude Code sandbox platform and operator runbook
 - [[entities/mobai-agent]] — mobai-agent；本轮核对 IDE 关联边界，其余原日期记录
+- [[entities/mobai-image-site]] — mobai 生图网站（Midjourney via Legnext，2026-09-09 立项）：飞书登录限 mobai 租户、参考图存 R2、Legnext 提交与幂等保护、Railway 独立部署；生成链路与生图页已完成，待接真实密钥联调
 - [[entities/vibe-motion]] — AI-driven Remotion motion graphics workspace producing Lunaverse promo videos (9:16 portrait); lunaverse-intro delivered, lunaverse-app-promo iterating (72s + 30s/15s cuts, villain-season real assets, Breeze TTS)
 - [[entities/video-agent-claude-wangbo]] — Claude Code video shot prompt workflow with Seedance gateway, OSS validation, and ablation-backed skill package
+- [[entities/lunaverse-poster-ref-site]] — 海报参考站（2026-09-09 立项）：飞书登录限 mobai，浏览器本地筛导出包里的 7 类文本上传，claude-sonnet 抽画像 → jina 向量 → 规则打分 → grok 终选 5 张，每人每次匹配留记录，Next.js 16 + pg，底子 Novel Library，部署 Railway；代码 ~/Downloads/lunaverse-poster-ref
 
 ## Syntheses
 
