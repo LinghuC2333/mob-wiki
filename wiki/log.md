@@ -261,3 +261,4 @@ title: Operation Log
 [2026-09-09 16:45] UPDATE: entities/mobai-image-site 上线 Railway，Impasto Arcane 正脸联调
 [2026-09-09 09:41] UPDATE: entities/lunaverse-poster-ref-site — 已上线 https://web-production-91885.up.railway.app ，仓库 LinghuC2333/lunaverse-poster-ref，飞书回调已登记，自动管理员
 [2026-09-09 17:05] UPDATE: entities/mobai-image-site 飞书登录接通，新建应用 Mob Midjourney Online
+[2026-09-09 17:20] UPDATE: entities/mobai-image-site 飞书应用可用范围改为全员
