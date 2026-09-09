@@ -160,7 +160,7 @@ tests/{unit,system,e2e}/           node:test 与 Playwright
 | 2 生成链路 | 上传校验、存储抽象、模型配置、提示词编译、Legnext 适配器与 mock、Worker、生成 API、幂等恢复、额度账本 | 2026-09-09 完成。见下文“生成链路实现” |
 | 3 页面 | 生图页（照 Midjourney 网页版 Create 页做）、我的图片、记录、详情、大图、手机布局 | 2026-09-09 完成，同日按用户要求重做成 Midjourney 深色界面。51 单元、22 系统、9 浏览器用例全过 |
 | 4 管理与可靠性 | 错误日志、管理员三页、停用、导出 | 用户 2026-09-09 明确只要生成部分，管理员页面暂不做；错误日志、恢复保存、变化放大已随计划 2 实现 |
-| 5 部署与联调 | Railway、真实飞书应用、R2 跨域、Legnext 小额联调、恢复演练 | 2026-09-09 已上线 https://mob-midjourney.up.railway.app （见“线上部署”一节）。本地真实联调通过。文生图 80 point、较大变化 120 point、带人物参考（oref）160 point 各一次。R2 用团队 moonshort 桶，前缀 `mobai-image/<env>`，公开域名 `https://r2-assets.mob-ai.cn`。浏览器直传经签名 PUT 到 R2，桶上加了 ID 为 `mobai-image-upload` 的 PUT 跨域规则（当前只放行 localhost:3100，正式域名部署时用 `scripts/r2-cors.mjs` 追加）。Railway 与飞书应用仍待做 |
+| 5 部署与联调 | Railway、真实飞书应用、R2 跨域、Legnext 小额联调、恢复演练 | 2026-09-09 已上线并接通飞书登录 https://mob-midjourney.up.railway.app （见“线上部署”一节）。本地真实联调通过。文生图 80 point、较大变化 120 point、带人物参考（oref）160 point 各一次。R2 用团队 moonshort 桶，前缀 `mobai-image/<env>`，公开域名 `https://r2-assets.mob-ai.cn`。浏览器直传经签名 PUT 到 R2，桶上加了 ID 为 `mobai-image-upload` 的 PUT 跨域规则（当前只放行 localhost:3100，正式域名部署时用 `scripts/r2-cors.mjs` 追加）。Railway 与飞书应用仍待做 |
 
 ## 界面（2026-09-09 改为照 Midjourney 网页版）
 
@@ -192,7 +192,8 @@ tests/{unit,system,e2e}/           node:test 与 Playwright
 - 域名 `https://mob-midjourney.up.railway.app`，Railway 提供的服务域名改名而来。R2 桶跨域规则已放行这个来源。
 - 部署方式是本地 `railway up -s web -d` 与 `railway up -s worker -d` 上传当前目录，Railpack 自动识别 Next.js 加 pnpm，Node 22（`.node-version`）。没有连 GitHub 仓库，项目目前也没有远端。
 - 迁移在 web 启动时执行（`MIGRATE_ON_START=true`），迁移脚本带咨询锁。`railway.json` 里的 preDeployCommand 实测没有生效，且 config-as-code 已被 Railway 标记为 2026-12-01 弃用。
-- 线上环境是 `APP_ENV=staging`。飞书应用还没接入，登录页用团队访问口令进入（`AUTH_ACCESS_CODE`，登录接口是原来的开发登录路由，staging 下强制成员角色）。口令在 Railway 变量里，不写进 wiki。飞书接入后删掉 `AUTH_DEV_LOGIN` 即可关闭。
+- 线上环境是 `APP_ENV=staging`。飞书登录已接入（2026-09-09），口令入口已通过删除 `AUTH_DEV_LOGIN` 与 `AUTH_ACCESS_CODE` 关闭；需要临时口令登录时再加回这两个变量。
+- 飞书应用是独立新建的“Mob Midjourney Online”，App ID `cli_aa2b333ee6f8dd06`，企业自建应用，能力只开了网页应用（主页 https://mob-midjourney.up.railway.app/create ），无额外权限，重定向 URL 为 `https://mob-midjourney.up.railway.app/api/auth/feishu/callback`。没有复用 Novel Library 的 Lunaverse Collector，两站互不影响。版本 1.0.0 免审核发布，可用范围目前只有应用所有者一人；开给全员要在版本管理里改可用范围再发版，那次需要企业管理员审批。租户标识 `145796ecc30c575d`。
 - 线上变量清单。APP_ENV、APP_ORIGIN、AUTH_DEV_LOGIN、AUTH_ACCESS_CODE、DATABASE_URL（引用 Postgres）、STORAGE_MODE=r2、R2_* 六项加 R2_PUBLIC_BASE、R2_PREFIX=mobai-image/staging、PROVIDER_MODE=legnext、LEGNEXT_API_BASE、LEGNEXT_API_KEY、GENERATION_ENABLED、UPLOAD_MAX_BYTES、REFERENCE_GET_TTL_SECONDS、NODE_ENV=production；web 另有 SERVICE_ROLE=web、DB_POOL_MAX、MIGRATE_ON_START；worker 另有 SERVICE_ROLE=worker、WORKER_CONCURRENCY、WORKER_DB_POOL_MAX。
 - 默认额度 2026-09-09 放宽为每人每天 60 项、每人同时 3 项、团队同时 6 项（迁移 003）。
 - 上线后用 Impasto Arcane 画风（`/Users/wangbo/Downloads/new style config/impasto-arcane`）的 casting 提示词加 male-face / female-face 风格参考（sw 700，V7，3:4，raw，stylize 250，chaos 4，未用 Omni）各跑一批，男女正脸各四张，各 80 point，风格与预览一致。

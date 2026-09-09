@@ -260,3 +260,4 @@ title: Operation Log
 [2026-09-09 09:23] UPDATE: entities/lunaverse-poster-ref-site — 网站本地跑通（飞书登录栈、海报库灌入、画像抽取、匹配、终选、结果页、记录页、管理员页、重跑、简报下载），端到端 5 分钟 0.38 美元；待 commit 与 Railway 部署
 [2026-09-09 16:45] UPDATE: entities/mobai-image-site 上线 Railway，Impasto Arcane 正脸联调
 [2026-09-09 09:41] UPDATE: entities/lunaverse-poster-ref-site — 已上线 https://web-production-91885.up.railway.app ，仓库 LinghuC2333/lunaverse-poster-ref，飞书回调已登记，自动管理员
+[2026-09-09 17:05] UPDATE: entities/mobai-image-site 飞书登录接通，新建应用 Mob Midjourney Online
