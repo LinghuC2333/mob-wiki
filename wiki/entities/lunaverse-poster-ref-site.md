@@ -117,13 +117,13 @@ Railway 新项目，web 服务加 Postgres。`railway.json` 用 railpack，构�
 
 ## 进度（2026-09-10 凌晨）
 
-计划 1 到 7 已在本地全部跑通，等 wangbo 允许后提交仓库并部署 Railway。
+已提交并上线。仓库 https://github.com/LinghuC2333/lunaverse-poster-ref（私有），Railway 项目 lunaverse-poster-ref，站点 https://web-production-91885.up.railway.app ，飞书应用 cli_aa0c059e0d799d0c 已登记该域名的回调。启动命令先跑迁移和海报灌库再起服务，管理员按 `ADMIN_BOOTSTRAP_NAME=王博` 在登录后自动提升。
 
 - 代码 `/Users/wangbo/Downloads/lunaverse-poster-ref`，Next.js 16.3、pg、TypeScript strict，本地端口 3110，数据库 `lunaverse_poster_ref`。
 - 端到端实测。Cornered Beast 导出包上传 8 个文件共 340 KB，抽画像约 30 秒到 90 秒，整次 5 分钟，费用 0.38 美元，其中画像抽取 0.34 美元（claude-sonnet-4-6 读 12.8 万 token），终选三次共 0.04 美元。抽出的阵容 Seren 加 Knox、Liam、Dean 与 li-selection-decision 一致。
 - 修改画像重跑跳过抽取，约 1 分钟，0.04 美元。
 - 已知坑。网关偶发返回非 JSON 导致抽画像失败，前两次试跑都撞上，第三次通过；现在失败信息会带模型原文前 200 字，页面有「用当前画像重试」。本地开发 localhost 与 127.0.0.1 的 Origin 校验已互认。
-- 待 wangbo 做的事。允许 commit；在 Railway 建项目并填 README 里的环境变量；在飞书开放平台加回调地址；首次部署后跑 `pnpm db:seed-posters` 和 `pnpm admin:bootstrap`。
+- 待 wangbo 做的事。用飞书登录一次站点，3 分钟内自动成为管理员；GitHub 集成没有新仓库权限，目前用 `railway up` 从本地部署，若要自动部署需在 Railway 控制台给 GitHub App 授权该仓库。
 
 ## 相关页面
 
