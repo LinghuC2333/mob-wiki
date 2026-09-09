@@ -117,7 +117,7 @@ Railway 新项目，web 服务加 Postgres。`railway.json` 用 railpack，构�
 
 ## 进度（2026-09-10 凌晨）
 
-已提交并上线。仓库 https://github.com/LinghuC2333/lunaverse-poster-ref（私有），Railway 项目 lunaverse-poster-ref，站点 https://web-production-91885.up.railway.app ，飞书登录用独立应用 Book Cover Match（cli_aa0c059e0d799d0c 是 Novel Library 的，已换掉），App ID cli_aa2b2c2afcb8dcc4，可用范围全员，版本 1.0.0 免审发布，回调已登记。启动命令先跑迁移和海报灌库再起服务，管理员按 `ADMIN_BOOTSTRAP_NAME=王博` 在登录后自动提升。
+已提交并上线。仓库 https://github.com/LinghuC2333/lunaverse-poster-ref（私有），Railway 项目 lunaverse-poster-ref，站点 https://book-cover-match.up.railway.app ，飞书登录用独立应用 Book Cover Match（cli_aa0c059e0d799d0c 是 Novel Library 的，已换掉），App ID cli_aa2b2c2afcb8dcc4，可用范围全员，版本 1.0.0 免审发布，回调已登记。启动命令先跑迁移和海报灌库再起服务，管理员按 `ADMIN_BOOTSTRAP_NAME=王博` 在登录后自动提升。
 
 - 代码 `/Users/wangbo/Downloads/lunaverse-poster-ref`，Next.js 16.3、pg、TypeScript strict，本地端口 3110，数据库 `lunaverse_poster_ref`。
 - 端到端实测。Cornered Beast 导出包上传 8 个文件共 340 KB，抽画像约 30 秒到 90 秒，整次 5 分钟，费用 0.38 美元，其中画像抽取 0.34 美元（claude-sonnet-4-6 读 12.8 万 token），终选三次共 0.04 美元。抽出的阵容 Seren 加 Knox、Liam、Dean 与 li-selection-decision 一致。
