@@ -174,6 +174,12 @@ tests/{unit,system,e2e}/           node:test 与 Playwright
 - 大图查看器盖在主内容区上，侧栏和输入区照旧可用。右栏是“继续创作”动作表（变化、放大、重新运行、使用画面/风格/提示词/人物）和尺寸、模型、种子；最右一列是同组四张缩略图，左右方向键切换，Esc 关闭。
 - 手机宽度单列，图片两列，底部四项导航。
 
+## 参数探针（2026-09-10）
+
+`pnpm models:probe` 对每个开放模型用最小提示词真实跑基础、Raw、HD、比例 9:16、画面参考、风格参考、人物参考，每个探针一次生成的费用（人物参考在 V7 下 160 point，HD 120，其余 80）。`--dry-run` 只列计划和费用，`--model` 与 `--only` 缩小范围，`--apply` 把结果写回 `config/model-capabilities.json`，基础通过则更新 `verified_at`，某项失败则关掉对应开关，并追加到 `probe_log`。2026-09-10 首次全跑，V7 六项与 V8.2 六项全部通过，共 1080 point。上游文档或模型有变动时再跑一遍。
+
+失败的任务卡片现在会显示“实际发给生图服务的内容”，也就是编译后的完整参数行，用户能看到究竟发了什么。
+
 ## 生成链路实现（2026-09-09）
 
 - 数据表在 `db/migrations/002_generation.sql`。assets、generation_tasks、task_references、task_outputs、task_events、request_attempts、job_queue、quota_policies、usage_ledger、worker_heartbeats。

@@ -263,3 +263,4 @@ title: Operation Log
 [2026-09-09 17:05] UPDATE: entities/mobai-image-site 飞书登录接通，新建应用 Mob Midjourney Online
 [2026-09-09 17:20] UPDATE: entities/mobai-image-site 飞书应用可用范围改为全员
 [2026-09-10 02:10] UPDATE: entities/mobai-image-site V8.2 验证与 raw 参数差异
+[2026-09-10 02:40] UPDATE: entities/mobai-image-site 参数探针脚本与首次全跑结果
