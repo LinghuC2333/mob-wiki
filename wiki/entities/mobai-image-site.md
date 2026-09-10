@@ -85,7 +85,7 @@ Next.js 16.3.0 App Router、React 19.2.8、TypeScript 5 strict、CSS Modules、p
 | model_id | 供应商参数 | 初始 enabled | 参考能力 |
 |-|-|-|-|
 | mj-v7 | `--v 7` | true，默认 | 画面参考 iw、风格参考 sref/sw、人物或物体参考 oref/ow（费用 2 倍） |
-| mj-v8.2 | `--v 8.2` | true | 画面参考、风格参考；不支持 oref/cref |
+| mj-v8.2 | `--v 8.2` | true，2026-09-10 真实验证 | 画面参考、风格参考；不支持 oref/cref。Raw 必须写 `--raw`，`--style raw` 会被拒 |
 | mj-v8.1 | `--v 8.1` | false | 同 v8.2 |
 | mj-v6.1、mj-v6 | `--v 6.1`、`--v 6` | false | 画面参考、风格参考、人物参考 cref/cw |
 | mj-niji-6 | `--niji 6` | false | 同 v6，但不支持 `--no` |
