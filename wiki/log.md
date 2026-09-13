@@ -264,3 +264,4 @@ title: Operation Log
 [2026-09-09 17:20] UPDATE: entities/mobai-image-site 飞书应用可用范围改为全员
 [2026-09-10 02:10] UPDATE: entities/mobai-image-site V8.2 验证与 raw 参数差异
 [2026-09-10 02:40] UPDATE: entities/mobai-image-site 参数探针脚本与首次全跑结果
+[2026-09-13 08:17] INGEST: raw/2026-09-13-book-cover-match-handoff.md → entities/lunaverse-poster-ref-site — Book Cover Match 交接文档（飞书 QinBda16EoZE3PxwmjGcbQAknke），供封面生成 skill 规划使用

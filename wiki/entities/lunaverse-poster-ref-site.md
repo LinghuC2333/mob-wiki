@@ -1,9 +1,9 @@
 ---
 title: 海报参考站（lunaverse-poster-ref，2026-09 立项）
 tags: [poster, lunaverse-stories, feishu-login, railway, nextjs, internal-tool]
-sources: [raw/2026-09-09-poster-ref-site-design.md]
+sources: [raw/2026-09-09-poster-ref-site-design.md, raw/2026-09-13-book-cover-match-handoff.md]
 created: 2026-09-09
-updated: 2026-09-10
+updated: 2026-09-13
 ---
 
 # 海报参考站（lunaverse-poster-ref，2026-09 立项）
@@ -124,6 +124,10 @@ Railway 新项目，web 服务加 Postgres。`railway.json` 用 railpack，构�
 - 修改画像重跑跳过抽取，约 1 分钟，0.04 美元。
 - 已知坑。网关偶发返回非 JSON 导致抽画像失败，前两次试跑都撞上，第三次通过；现在失败信息会带模型原文前 200 字，页面有「用当前画像重试」。本地开发 localhost 与 127.0.0.1 的 Origin 校验已互认。
 - 待 wangbo 做的事。用飞书登录一次站点，3 分钟内自动成为管理员；GitHub 集成没有新仓库权限，目前用 `railway up` 从本地部署，若要自动部署需在 Railway 控制台给 GitHub App 授权该仓库。
+
+## 交接文档
+
+2026-09-13 给 wangbo 出了一份交接文档，用途是拿去让 GPT 设计封面生成 skill。飞书 https://xcn662409uz0.feishu.cn/docx/QinBda16EoZE3PxwmjGcbQAknke ，原文副本 [source](../../raw/2026-09-13-book-cover-match-handoff.md)。文档列了数据契约（profile、tags、results 字段）、三种拿结果的方式、六条已定边界、网关四个生图模型的参数、封面 skill 要回答的八个问题和已知的坑。
 
 ## 相关页面
 
