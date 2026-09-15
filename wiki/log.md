@@ -151,3 +151,92 @@ title: Operation Log
 [2026-06-10 15:40] UPDATE: wiki/index.md — register concepts/db-connection-budget（Concepts，按字母序插在 comfyui-modal-deploy 与 dream-bonus-only-op 之间）+ bump updated 到 2026-06-10。
 
 [2026-09-14 10:00] LINT: Restored missing metadata from Git history and existing dates; empty sources means provenance not yet supplied. Completed navigation, corrected renamed/missing references, and flagged obsolete gate-analysis assumptions. Structural maintenance only: historical business/deployment claims have not been revalidated.
+
+[2026-09-15 01:10] INGEST: raw/2026-09-15-lunaverse-ide-main-calibration.md — 固定 main 全面校准，保留历史与未验证边界。
+[2026-09-15 01:10] UPDATE: concepts/agent-manuals-agents-md — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/asset-matting-hybrid — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/asset-pipeline-aspect-ratio-recovery-2026-05 — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/asset-pipeline-green-spill-fix-2026-05-09 — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/asset-pipeline-green-spill-runbook — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/asset-pipeline-to-final-raw-cache-trap-2026-05-10 — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/assetctl-integration-contract — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/assetctl-skills-sync-and-staging — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/assets-produce-ide-workspace-contract — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/cg-pipeline — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/cli-gateway-protocol — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/codex-runtime-and-verification-layers — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/comfyui-modal-deploy — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/episode-writer-music-strategy — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/four-layer-philosophy — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/frame-interpolation-spec — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/ide-invite-codes-single-use — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/ide-tool-gateway-concurrency-limit — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/ls-format — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/ls-spec-redesign-2026-06 — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/lunaria-web-agent-v2 — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/lunaverse-ide-ai-integration — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] CREATE: concepts/lunaverse-ide-creator-progress — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] CREATE: concepts/lunaverse-ide-ls-contract — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] CREATE: concepts/lunaverse-ide-release-and-operations — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] CREATE: concepts/lunaverse-ide-skills-and-production — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/matting-v10-sharpen-alpha-bug-2026-05-28 — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/moonshort-ide-uiux-audit-2026-06 — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/mp-cross-signal-author-guidance — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/otome-script-quality-evaluator — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/otome-writing-benchmark-survey-2026-06 — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/production-pipeline-two-phase — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/second-chorus-asset-pipeline — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/server-layer — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/sfx-pipeline — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/signal-int-backend — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/stable-step-id — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: concepts/style-langfuse-migration — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: entities/agent-forge — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: entities/assets-produce — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: entities/cli-gateway — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: entities/dramatizer-ls — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: entities/dramatizer — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: entities/lunaria-web — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: entities/lunascripts — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: entities/lunaverse-backend — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: entities/lunaverse-client — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: entities/lunaverse-ide — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: entities/mob-ai-router — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: entities/mobai-agent — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: index — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: plan — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: syntheses/cloud-deployment-architecture — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: syntheses/data-silence-failure-class — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] CREATE: syntheses/lunaverse-ide-calibration-2026-09 — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: syntheses/lunaverse-rename-migration — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: syntheses/platform-onboarding-guide — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: syntheses/product-strategy-decisions — IDE main 14c089322ba1 事实/来源/历史边界校准。
+[2026-09-15 01:10] UPDATE: syntheses/render-time-silent-drop-failure-class — IDE main 14c089322ba1 事实/来源/历史边界校准。
+
+[2026-09-15 01:17] INGEST: raw/2026-09-15-lunaverse-ide-calibration-verification.md — 最终 main 增量与补充测试，原始记录不覆盖。
+[2026-09-15 01:17] UPDATE: wiki/entities/lunaverse-ide.md — 固定最终主线与验证边界。
+[2026-09-15 01:17] UPDATE: wiki/concepts/lunaverse-ide-ai-integration.md — 固定最终主线与验证边界。
+[2026-09-15 01:17] UPDATE: wiki/concepts/lunaverse-ide-skills-and-production.md — 固定最终主线与验证边界。
+[2026-09-15 01:17] UPDATE: wiki/concepts/agent-manuals-agents-md.md — 固定最终主线与验证边界。
+[2026-09-15 01:17] UPDATE: wiki/concepts/assets-produce-ide-workspace-contract.md — 固定最终主线与验证边界。
+[2026-09-15 01:17] UPDATE: wiki/concepts/assetctl-integration-contract.md — 固定最终主线与验证边界。
+[2026-09-15 01:17] UPDATE: wiki/concepts/style-langfuse-migration.md — 固定最终主线与验证边界。
+[2026-09-15 01:17] UPDATE: wiki/concepts/lunaverse-ide-creator-progress.md — 固定最终主线与验证边界。
+[2026-09-15 01:17] UPDATE: wiki/concepts/lunaverse-ide-ls-contract.md — 固定最终主线与验证边界。
+[2026-09-15 01:17] UPDATE: wiki/concepts/lunaverse-ide-release-and-operations.md — 固定最终主线与验证边界。
+[2026-09-15 01:17] UPDATE: wiki/syntheses/lunaverse-ide-calibration-2026-09.md — 固定最终主线与验证边界。
+[2026-09-15 01:17] UPDATE: wiki/index.md — 固定最终主线与验证边界。
+
+[2026-09-15 01:21] INGEST: raw/2026-09-15-lunaverse-ide-calibration-final-main.md — main 再次前进，撤回临时开发指南；测试所属 SHA 如实保留。
+[2026-09-15 01:21] UPDATE: wiki/entities/lunaverse-ide.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-09-15 01:21] UPDATE: wiki/concepts/lunaverse-ide-ai-integration.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-09-15 01:21] UPDATE: wiki/concepts/lunaverse-ide-skills-and-production.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-09-15 01:21] UPDATE: wiki/concepts/agent-manuals-agents-md.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-09-15 01:21] UPDATE: wiki/concepts/assets-produce-ide-workspace-contract.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-09-15 01:21] UPDATE: wiki/concepts/assetctl-integration-contract.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-09-15 01:21] UPDATE: wiki/concepts/style-langfuse-migration.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-09-15 01:21] UPDATE: wiki/concepts/lunaverse-ide-creator-progress.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-09-15 01:21] UPDATE: wiki/concepts/lunaverse-ide-ls-contract.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-09-15 01:21] UPDATE: wiki/concepts/lunaverse-ide-release-and-operations.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-09-15 01:21] UPDATE: wiki/syntheses/lunaverse-ide-calibration-2026-09.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-09-15 01:21] UPDATE: wiki/index.md — 最终对齐 442fd5369，撤回资料不作现行规范。

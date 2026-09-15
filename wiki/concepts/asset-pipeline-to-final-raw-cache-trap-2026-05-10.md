@@ -1,11 +1,24 @@
 ---
-title: to-final.py _raw Cache Trap
-tags: [asset-pipeline, bug, n2m, lunaverse-backend]
-date: 2026-05-10
-created: 2026-05-10
-updated: 2026-06-08
-sources: []
+title: 历史｜to-final.py _raw Cache Trap
+tags:
+- asset-pipeline
+- bug
+- n2m
+- lunaverse-backend
+date: '2026-05-10'
+created: '2026-05-10'
+updated: '2026-09-15'
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
+status: historical
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：这是当时的特定素材管线、实验或事故记录，不是当前 IDE 的恢复/部署 runbook。现行注册表已移除独立 matting、upscale-image 等旧工具，透明角色生产已变化；不能据此批量重渲、删除缓存、部署旧远端服务或断言历史测试今天仍通过。
+> 当前入口：[[concepts/assetctl-integration-contract]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 # `to-final.py` `_raw` Cache Trap
 

@@ -1,10 +1,28 @@
 ---
 title: Agent-Forge
-tags: [nextjs, mcp, video, agent, llm, prisma, react, deprecated]
-sources: [raw/2026-04-14-agent-forge-skill.md, raw/2026-04-14-mobai-agent-memory.md, raw/2026-04-14-cli-gateway-server-layer-design.md]
-created: 2026-04-14
-updated: 2026-05-14
+tags:
+- nextjs
+- mcp
+- video
+- agent
+- llm
+- prisma
+- react
+- deprecated
+sources:
+- raw/2026-04-14-agent-forge-skill.md
+- raw/2026-04-14-mobai-agent-memory.md
+- raw/2026-04-14-cli-gateway-server-layer-design.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-14'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：此页是独立 Agent-Forge 平台记录。当前 IDE 的素材入口、Skill 源和运行时已在 IDE 仓，不能把此页 48 MCP 工具或旧 Agent Loop 当成 IDE 现役工具清单；原平台未在本次复验。
+> 当前入口：[[entities/lunaverse-ide]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 > **Status (2026-05-14): historical reference.** Active asset production has moved to [[entities/assets-produce]] (`cdotlock/assets-produce`), an opencode-based rewrite that explicitly cites Agent-Forge's six底层问题 (prompt 构造 / context 管理 / 错误协议 / tool 配对 / provider 抽象 / subagent 实现) as the reason for a from-scratch rebuild rather than incremental refactor. Image / material prompt knowledge from Agent-Forge has been distilled into `knowledge/novel-to-video/image-style-presets.json` and `langfuse-draft.md` over there. This page is kept as the historical entity for the original platform; do not treat it as the current production system.
 

@@ -1,10 +1,26 @@
 ---
 title: Lunaverse Client
-tags: [cocos, game, typescript, testing, state-machine, interactive-fiction]
-sources: [raw/2026-04-14-lunaverse-client-skill.md, raw/2026-04-14-mobai-agent-memory.md, raw/2026-04-14-cli-gateway-server-layer-design.md]
-created: 2026-04-14
-updated: 2026-04-14
+tags:
+- cocos
+- game
+- typescript
+- testing
+- state-machine
+- interactive-fiction
+sources:
+- raw/2026-04-14-lunaverse-client-skill.md
+- raw/2026-04-14-mobai-agent-memory.md
+- raw/2026-04-14-cli-gateway-server-layer-design.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-14'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：IDE 当前消费 LS 4.0.0，但不能据此认定这份独立 Cocos Client 或其线上安装已兼容。v3/v4、you/inner_thought 与有效发布身份须由消费者代码和部署验收证明；以下客户端阶段、事件与历史测试不在本次实现复验范围。
+> 当前入口：[[concepts/lunaverse-ide-ls-contract]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 Cocos Creator 3.8.8 game frontend for Lunaverse interactive fiction. Features a three-layer architecture (AppCore / EventBus / AppRenderer) that cleanly separates pure game logic from the rendering engine, enabling fully headless testing from Node.js without the Cocos runtime. Connects to [[entities/lunaverse-backend]] for all game data and server-side logic.
 

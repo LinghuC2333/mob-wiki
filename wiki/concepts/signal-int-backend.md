@@ -1,10 +1,22 @@
 ---
 title: Backend Support for LS `@signal int`
-tags: [lunaverse, backend, ls, persistence]
-sources: [raw/2026-04-23-signal-int-backend-design.md]
-created: 2026-04-24
-updated: 2026-04-24
+tags:
+- lunaverse
+- backend
+- ls
+- persistence
+sources:
+- raw/2026-04-23-signal-int-backend-design.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-24'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：IDE v4 规范要求作者 mark/int signal 为 SCREAMING_SNAKE_CASE；小写引擎值独立保留。下文后端示例/存储实现属原日期，不能把旧作者小写变量直接复制到新剧本，也不能据 IDE 测试推断后端 rollout 完成。
+> 当前入口：[[concepts/lunaverse-ide-ls-contract]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 # Backend Support for LS `@signal int`
 

@@ -1,10 +1,29 @@
 ---
 title: Lunaverse Backend
-tags: [nextjs, game-engine, prisma, postgresql, supabase, r2, stripe, interactive-fiction]
-sources: [raw/2026-04-14-mobai-agent-memory.md, raw/2026-04-14-cli-gateway-server-layer-design.md, docs/superpowers/specs/2026-04-24-remix-anywhere-design.md, raw/2026-05-30-backend-production-pipeline-two-phase.md]
-created: 2026-04-14
-updated: 2026-06-06
+tags:
+- nextjs
+- game-engine
+- prisma
+- postgresql
+- supabase
+- r2
+- stripe
+- interactive-fiction
+sources:
+- raw/2026-04-14-mobai-agent-memory.md
+- raw/2026-04-14-cli-gateway-server-layer-design.md
+- docs/superpowers/specs/2026-04-24-remix-anywhere-design.md
+- raw/2026-05-30-backend-production-pipeline-two-phase.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-14'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：App Backend 与 IDE Cloud 现在是不同拥有者。桌面仓明确声明 IDE Cloud 源码/部署权威为 cdotlock/lunaverse-ide-cloud；当前 IDE 发布客户端走 /api/ide 的统一登录与 workflow 协议。下文 App 数据模型、路由数、限流/邀请、部署与生产状态没有用 IDE 仓替代复验。
+> 当前入口：[[concepts/lunaverse-ide-release-and-operations]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 Next.js full-stack application serving as the game engine, story delivery platform, admin dashboard, Remix runtime, Dreaming Universe backend, and content release controller for Lunaverse interactive fiction games. Handles player state management, story node delivery from upstream, D20 dice combat, economy systems, survival mechanics, minigames, achievements, payments via Stripe, remix/branching via LLM, Dream production/recommendation plumbing, and NPC character chat. The primary backend that [[entities/lunaverse-client]] connects to for all gameplay operations.
 

@@ -1,13 +1,26 @@
 ---
-title: Lunascripts (LS) 格式规范
-tags: [ls, script-format, visual-novel, specification]
+title: 历史｜Lunascripts (LS) 格式规范
+tags:
+- ls
+- script-format
+- visual-novel
+- specification
 sources:
-  - /Users/Clock/lunaverse/lunascripts/LS-SPEC.md
-  - /Users/Clock/lunaverse/lunascripts/docs/JSON-OUTPUT.md
-  - /Users/Clock/lunaverse/lunascripts/docs/ENGINE-INTEGRATION.md
-created: 2026-04-15
-updated: 2026-06-04
+- /Users/Clock/lunaverse/lunascripts/LS-SPEC.md
+- /Users/Clock/lunaverse/lunascripts/docs/JSON-OUTPUT.md
+- /Users/Clock/lunaverse/lunascripts/docs/ENGINE-INTEGRATION.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-15'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: historical
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：下文为六月 LS 规范/迁移快照，不是当前作者手册。IDE 已消费 4.0.0：INNER_THOUGHT/inner_thought、MC 最近 look、作者 signal 全大写，并保留明确版本兼容；不可混合旧例子或据此改写存量内容。
+> 当前入口：[[concepts/lunaverse-ide-ls-contract]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 Lunascripts（LS）是 MobAI 互动视觉小说的脚本标记语言。一个 `.md` 文件描述一集的全部内容——场景、角色、对话、音频、D20 检定、小游戏、分支路由——由 Go 解释器编译为 JSON 供前端播放器消费。
 

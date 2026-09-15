@@ -1,10 +1,22 @@
 ---
 title: 乙女逐剧本质量评分器设计（per-script quality gate）
-updated: 2026-06-05
-tags: [evaluation, otome, llm-as-judge, quality-gate, ls]
-created: 2026-06-04
-sources: []
+updated: '2026-09-15'
+tags:
+- evaluation
+- otome
+- llm-as-judge
+- quality-gate
+- ls
+created: '2026-06-04'
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：本文的旧 Gate 专项前提已不能当成当前 LS/IDE 发布门。主线采用现役 reviewer Skill 与规范报告，机械存在性、质量结论、局部任务和发布是分开的事实；不得把本设计的指标草案硬接成所有任务的固定阻塞。
+> 当前入口：[[concepts/lunaverse-ide-creator-progress]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 # 乙女逐剧本质量评分器设计
 

@@ -1,10 +1,25 @@
 ---
-title: IDE Tool Gateway Concurrency Limits
-tags: [backend, ide, concurrency, rate-limit, upstream, ops]
-created: 2026-06-14
-updated: 2026-06-14
-sources: []
+title: 历史｜IDE Tool Gateway Concurrency Limits
+tags:
+- backend
+- ide
+- concurrency
+- rate-limit
+- upstream
+- ops
+created: '2026-06-14'
+updated: '2026-09-15'
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
+status: historical
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：这是六月 App Backend 中 IDE 邀请/限流的实现与上线记录；IDE Cloud 权威已迁至独立仓库。客户端仍有邀请登录和认证网关，但本次没有复验 Cloud 数据模型、额度默认、限流数字、未用邀请码数量或生产 SQL。不能照下文旧表/迁移指令维护当前 IDE 身份服务。
+> 当前入口：[[concepts/lunaverse-ide-release-and-operations]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 [[entities/lunaverse-backend]] 的 IDE 工具网关（`/api/ide/tools/[toolId]`，所有用户的出图/视频/抠图等上游调用都过这道关）有**两层并发闸门**，保护上游提供商不被多用户聚合并发打爆。代码与上线状态见 PR [#15](https://github.com/cdotlock/lunaverse-backend/pull/15)（分支 `feat/ide-concurrency-limiter`，3 个 commit）。
 

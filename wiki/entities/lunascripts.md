@@ -1,10 +1,23 @@
 ---
 title: Lunascripts (LS) Interpreter
-tags: [ls, script, interpreter, go, visual-novel, fastapi]
-sources: []
-created: 2026-04-15
-updated: 2026-05-30
+tags:
+- ls
+- script
+- interpreter
+- go
+- visual-novel
+- fastapi
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-15'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：当前 IDE 消费上游 Lunascripts 4.0.0 的精确快照，已核对完整 vendor 树；新剧本为 .ls，内心独白为 INNER_THOUGHT。下文保留较早独立解释器介绍，旧命令/JSON 示例与部署测试不是当前 IDE 的完整合同。
+> 当前入口：[[concepts/lunaverse-ide-ls-contract]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 Lunascripts（LS）是 MobAI 互动视觉小说的统一脚本格式及其配套解释器。一个 `.md` 脚本文件同时定义一集的叙事内容和游戏机制（D20 检定、小游戏、分支路由），Go 解释器将其编译为前端播放器可直接消费的 JSON。
 

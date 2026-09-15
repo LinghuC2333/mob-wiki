@@ -1,110 +1,88 @@
 ---
-title: assets-produce ↔ Lunaverse IDE 工作区契约
-tags: [assets-produce, lunaverse-ide, mapping-json, asset-pipeline, contract]
-sources: []
-created: 2026-05-18
-updated: 2026-05-22
+title: Lunaverse IDE — 规范书籍目录与本地素材映射
+tags:
+- assets-produce
+- lunaverse-ide
+- mapping-json
+- asset-pipeline
+- contract
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+- raw/2026-09-15-lunaverse-ide-calibration-final-main.md
+- raw/2026-09-15-lunaverse-ide-calibration-verification.md
+created: '2026-05-18'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: current-source-snapshot
+source_revision: 442fd53692d077c1e601231d79792c6c50b430e3
+evidence_revision: 14c089322ba14c06b65fcb17d9ecdfd4d807b8d3
 ---
 
-Lunaverse IDE 通过**打开一个本地工作区文件夹**消费 assets-produce 产物。本页定死 assets-produce 必须保证什么，IDE 才能正确认素材。配套设计文档:assets-produce 仓库 `docs/superpowers/specs/2026-05-18-assets-produce-ide-workspace-contract.md`。
+当前 IDE 用一个规范目录承载一本书，先在本地形成可检查的成果，再由发布流程生成云端版本。本页替代 2026-05 的“根目录 mapping.json 是唯一事实、IDE 不扫描磁盘”约定；那些旧约定不能用于新工程。
 
-> **2026-05-22 状态更新**:`novels-to-lunascript` 和 `assets-produce` 两个上游仓库已冻结,所有 skill / CLI 都迁入 `lunaverse-ide` 仓库本身(详见下方 "IDE 自带 mapping-patch 工具" 段)。本页约束的"契约"现在由 IDE 内部脚本守。
+本页校准截至 main `442fd53692d077c1e601231d79792c6c50b430e3`；实现引用保留最初核对的 `14c089322ba14c06b65fcb17d9ecdfd4d807b8d3`。期间两次开发资料变更已核对，最终净差异仅删除三份本机开发 Skill，产品实现未变。版本与测试归属见 [[syntheses/lunaverse-ide-calibration-2026-09]]；这不是实时订阅。
 
-IDE 内部 AI 架构(Cline / Tab 补全)见 [[concepts/lunaverse-ide-ai-integration]];素材解耦原则见 [[concepts/ls-format]];项目实体见 [[entities/assets-produce]]。
+## 书籍与工作区
 
-## 关键结论
+Library 工作区的新书目录是 `books/<bookId>/`。`book.json` 提供作品元数据，宿主识别并绑定当前书；既有注册路径和 `lunascripts/<bookId>/` 有兼容读取逻辑，不应机械移动用户已有工程或把本地旧目录名误认为产品未迁移。
 
-配合 IDE 需要的能力 assets-produce 大部分已具备(REST Phase 8、oss-put Phase 12、素材编排 Phase 14)。**唯一必须保证的是工作区契约。** 文件夹只是字节放哪;`mapping.json` 才是机器认素材的依据。
+默认资料库位于用户目录下 `Lunaverse IDE/workspace`。变更资料库位置应使用 Lunaverse: Change Workspace Location 的安全迁移操作，不能只改设置路径然后假设旧书已搬过去。
 
-## 工作区结构(依据 `feature_parade` demo 实测)
+## 新书规范目录
 
-```
-<workspace>/
-├── .claude/
-├── assets/
-│   ├── characters/<name>/<look>.<ext>
-│   ├── backgrounds/<name>.<ext>
-│   ├── cg/<name>.<ext>
-│   ├── music/<name>.<ext>
-│   └── sfx/<name>.<ext>
-├── mapping.json            # 唯一契约:name+kind → 位置
-├── <script>.md             # LS 剧本
-├── <script>_output.json    # LS 编译产物
-└── README.md
-```
-
-## 四条硬规则
-
-1. **`mapping.json` 是唯一契约**:IDE / LS 解释器只认它,不扫文件夹。schema 以 IDE 实际解析代码为准。
-2. **`assets/` 按 kind 分子目录**:给「用户手动上传素材」一个一眼就懂的入口(决策 B)。
-3. **任何新素材自动登记进 `mapping.json`**:agent 生成的、用户手动丢进 `characters/` 的,都必须自动写 mapping 条目。**make-or-break。**
-4. **取素材走 mapping 解析,`loc` 可本地路径可 OSS URL**:禁止写死「永远读 `./assets/*`」。守此 → 本地/远程同一套,上云零返工。
-
-## 静默失败 bug 类(为什么规则 3 不可省)
-
-漏登记 = 文件在、IDE/LS 看不见 → 编译期静默跳过或渲染期 404,整段戏丢失且**不报错**。LS wiki 有真实 bug 史(`MRS. KING:` 标签失配 → 8 条 dialogue 静默丢;`@mama_reyes` 无 mapping 键 → 编译静默忽略)。这是反复出现的同构 bug 族,自动登记是唯一根治。
-
-具体在角色立绘这一层,最常见的同构 bug 是:**05 episode-writer 写了 `@<char> show <look>` 或 `<CHAR> [look]:`,但 06 asset-prompt-generator 没枚举这个 `(char, look)`,mapping 不存在,引擎 lookup miss 保留前一帧**。NRBI / chaoreqi-idol 两本都中招过,见下一段。
-
-## IDE 自带 mapping-patch 工具(2026-05-22 加入)
-
-`agents/asset/skills/asset-prompt-generator/patch_mapping.py` 是 IDE 内置的 mapping 完整性自检工具,落点跟 `check_clothing_consistency.py` 并列,目的是把以下两种历史人工补丁通用化:
-
-| 历史先例 | 做了什么 |
+| 路径（相对 bookRoot） | 放什么 |
 |---|---|
-| **NRBI** | `compiled/mapping.json` 是手工 baked 的 frozen vendored artifact——某个时刻有人把 `look_alias_map.json` 摊平进 mapping,但脚本没沉淀到任一仓库 |
-| **chaoreqi-idol** | 团队在 `_render/patch_mapping.py` 硬编码 15 个 supplementary look(suyongqing 7 + yunchen 8)+ `patch_mapping_aliases.py` 5 个中文 alias |
+| `book.json` | 作品身份、标题和创建元信息 |
+| `00-source/chapters`、`00-source/cover` | 原文与书级封面；原文/创作前提属于创作输入 |
+| `01-novel-evaluator/` | 评估、改编 brief、独立复核报告 |
+| `02-character-architect/bibles/` | 角色 Bible 与上层 bible-review-report |
+| `02.5-outfit-anchor/` | 着装锚点规划材料 |
+| `03-entity-planner/routes/` | 结构决策、分集与路由规划 |
+| `03.5-vault/{routes,episodes,characters,locations,wardrobe,secrets}/` | 本书结构化创作知识；secrets 指剧情秘密，不是系统凭据 |
+| `04-entity-normalizer/` | characters、locations、alias_map 规范实体 |
+| `04.5-entity-rename/` | rename_map 和对应变更报告 |
+| `05-episode-writer/{scripts,drafts,reviews}/` | 正式 LS、草稿与逐集审核；正式文件按 Skill 的 episode 身份命名 |
+| `06-asset-prompt-generator/asset-specs.json` | 素材描述/计划输入，不等于已渲染成果 |
+| `07-asset-production/images/{character,anchor,ep_sprites,scene,cg}/` | 系列角色、锚点、逐集立绘、场景和 CG 图像 |
+| `07-asset-production/mapping.json` | 当前本地素材映射 |
+| `08-audio-production/{music,sfx,auditions}/` | BGM、音效、试听缓存 |
+| `08-audio-production/voices.json` | 角色声音分配，不是整集对白音频 |
+| `08-cg-production/runs/` | CG 生产运行资料 |
+| `09-minigame-production/games/<gameId>/` | 完整 H5 小游戏，入口通常 index.html |
+| `10-preview/compiled/` | 本地预览派生输出 |
+| `11-publish/bundles/` | 发布派生包 |
 
-新工具的能力:
+## 不同状态目录不要混用
 
-1. **扫描 + 对账**:walk `scripts/*.ls`,三种引用形式(`@char show` / `@char look` / `<CHAR> [look]:`)全部提取,跟 `mapping.assets.characters[char][look]` 比对
-2. **分类**:`missing_sprite`(影响画面,退出 1) vs `missing_voice_tag`(`muffled` / `quiet_voice` / `warm_chuckle` 等启发式识别,引擎保留前一帧,信息性)
-3. **`--apply`**:把缺失 sprite 写进 mapping,备份原版到 `mapping.pre-patch.backup.json`,**幂等**(再次 apply 不覆盖备份)
-4. **`--aliases <json>`**:display 角色名→canonical(中文显示名),per-look alias(`waigong.warm_chuckle` → `waigong.warm_smile`),用户自定义 voice_tag tokens
-5. **路径约定自动推断**:从 mapping 现有第一条 character entry 推 `(prefix, subdir, ext)`;`--oss-prefix` `--char-subdir` `--ext` 可覆盖
-6. **CI 友好**:`--json` 输出机器可读,退出码 0(干净 OR apply 成功) / 1(dry-run 有 missing_sprite) / 2(环境错)
+`book-layout.ts` 另定义工作区 `.lunaverse/state/<bookId>/`，其 cache、runs、asset-history、releases 供宿主使用。其中 `codex-home` 等 legacy 命名的路径函数存在，不证明当前仍执行 Codex。
 
-### 实战验证(2026-05-22 chaoreqi-idol 真本)
+书内 `.lunaverse/skills/` 是受管理技能投影，`.lunaverse/creator-step-progress.json` 是步骤记录，`.lunaverse/production/active-style.json` 是本书选定风格身份。它们分别由各自拥有者更新，不应把所有 `.lunaverse` 一次删除当作通用恢复操作。
 
-```
-[patch_mapping] /Users/.../chaoreqi-idol/compiled/mapping.json
-  refs=242  hits=212  missing_sprite=2  missing_voice_tag=2
-  path convention: crqi/characters/<char>_<look>.webp
+## 映射与磁盘存在性
 
-── MISSING SPRITE ──
-  ✗ 苏咏晴.confident_smirk  (×3)        ← 团队漏渲
-  ✗ 苏咏晴.fierce_protective  (×8)       ← 团队 patch_aliases 漏列中文 alias
+Gallery 会读取本书磁盘状态；`local-mapping.ts` 的 `discoverLocalAssetInventory`、构建与补全逻辑可以从当前素材和磁盘清单派生本地 mapping。读取映射时先尝试 `07-asset-production/mapping.json`，再考虑旧根 mapping。
 
-── MISSING VOICE TAG ──
-  ◦ 苏咏晴.muffled  (×1)                ← DELIVERY.md 已标注
-  ◦ 苏咏晴.quiet_voice  (×18)            ← DELIVERY.md 只报了 4 次,实际 18 次
-```
+映射仍是 Preview/compiler 解析素材引用的重要输入，但不是“有一张 mapping 就证明文件存在”。本地 loc 必须能解析到当前书的真实非空交付文件；路径、kind、角色/look、CG 形态要匹配。远端 URL 存在于 JSON 也不等于本次网络探测成功。
 
-工具检出了 chaoreqi 团队手撸脚本**真实漏掉的 2 个问题** + 验证了 voice 标签分类正确。
+不要沿用 `patch_mapping.py --apply` 的旧说明，在当前书中造出不存在的图片条目。规范生产成功后由宿主更新 Gallery/mapping；孤立文件需要识别、验证后登记，不能只靠文案宣布“已同步”。
 
-### 使用流程
+## 预览、备份与恢复
 
-```bash
-# 在 IDE 仓库根目录跑
-python3 agents/asset/skills/asset-prompt-generator/patch_mapping.py \
-    --book <slug> --root <path/to/book>        # dry-run 对账
-python3 agents/asset/skills/asset-prompt-generator/patch_mapping.py \
-    --book <slug> --root <path> --apply        # 实际写 mapping
-python3 agents/asset/skills/asset-prompt-generator/patch_mapping.py \
-    --book <slug> --root <path> --apply \
-    --aliases <path/to/aliases.json>           # 配合显示名 / 跨语种 alias
-```
+本地 Preview 允许消费本地素材，并不意味着所有发布条件已满足。云端 player 不能直接访问这台机器的路径，因此发布必须走拥有上传和版本绑定的正式链。
 
-详细 schema 与处理 finding 的标准动作见 `agents/asset/skills/asset-prompt-generator/SKILL.md` "## 06 收尾自检:mapping 完整性" 段。
+完整工程快照的意义不同于 assets.zip：它绑定工程清单、文件 digest 和 blob；恢复会校验路径、大小与 SHA-256，并采用隔离暂存。恢复到新目标，保留原工程；不能把任意 ZIP 改名为 project.zip 后当作可信快照，也不能用恢复动作绕过当前权限。
 
-## 不在 assets-produce 职责内
+相关：[[concepts/lunaverse-ide-creator-progress]] · [[concepts/lunaverse-ide-release-and-operations]] · [[concepts/lunaverse-ide-ls-contract]]。
 
-- 跨机器 / CLI Gateway:现在不碰;能力已在代码,真要远程再启用。
-- Notion 同步:IDE 侧 pipeline gate 的自动推钩子(只读镜像、无人手填),不是 assets-produce 的事。
-- IDE 本体:独立项目(`lunaverse-ide` 仓库)。
+## 核对来源
 
-## 相关
-
-- [[concepts/lunaverse-ide-ai-integration]] — IDE 内部 AI 架构
-- [[concepts/ls-format]] — LS 素材解耦原则(设计原则 #4)
-- [[entities/assets-produce]] — 项目实体
+- [packages/shared/src/node/book-layout.ts](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/shared/src/node/book-layout.ts)
+- [packages/ls-welcome/package.json](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/ls-welcome/package.json)
+- [packages/ls-workshop/src/local-mapping.ts](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/ls-workshop/src/local-mapping.ts)
+- [packages/ls-workshop/src/active-style-authority.ts](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/ls-workshop/src/active-style-authority.ts)
+- [packages/ls-preview/src/project-snapshot.ts](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/ls-preview/src/project-snapshot.ts)
+- [packages/ls-preview/src/project-snapshot-client.ts](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/ls-preview/src/project-snapshot-client.ts)
+- [packages/ls-preview/src/project-snapshot-restore.ts](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/ls-preview/src/project-snapshot-restore.ts)
+- [本次原始核对记录](../../raw/2026-09-15-lunaverse-ide-main-calibration.md)
+- [补充验证与最终主线差异](../../raw/2026-09-15-lunaverse-ide-calibration-verification.md)
+- [最终主线与开发指南撤回](../../raw/2026-09-15-lunaverse-ide-calibration-final-main.md)

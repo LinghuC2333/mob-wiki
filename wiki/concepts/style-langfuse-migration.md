@@ -1,52 +1,61 @@
 ---
-title: Style prompts → Langfuse 权威源迁移（2026-06-02）
-updated: 2026-06-02
-created: 2026-06-02
-tags: ["style", "langfuse", "migration"]
-sources: []
+title: Lunaverse IDE — 当前风格包与历史 Langfuse 迁移
+updated: '2026-09-15'
+created: '2026-06-02'
+tags:
+- style
+- langfuse
+- migration
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+- raw/2026-09-15-lunaverse-ide-calibration-final-main.md
+- raw/2026-09-15-lunaverse-ide-calibration-verification.md
+last_reviewed: '2026-09-15'
+status: current-source-snapshot
+source_revision: 442fd53692d077c1e601231d79792c6c50b430e3
+evidence_revision: 14c089322ba14c06b65fcb17d9ecdfd4d807b8d3
 ---
 
-# Style prompts → Langfuse migration
+“Skill 不再经 Langfuse”与“所有风格支持都已删除”是两件事。当前源码仍有网关/Langfuse 兼容和版本管理代码，但新风格选择由完整随包 recipe 的本地目录控制，不再适用 2026-06 的“16 个远端 family 是唯一现行目录”描述。
 
-把 NRBI 渲染管线的 **16 个 style_config 风格 family** 从「三处碎片化」迁成 **Langfuse 单一权威源**，并在 Lunaverse IDE 里做成完整的 CRUD 管理面板。是 [[concepts/assetctl-skills-sync-and-staging]]（skill 正文 → Langfuse）的**风格侧同构**：skill 用 `skill_<name>`，style 用 `style_<name>`，同一个 `assets-produce` project。
+本页校准截至 main `442fd53692d077c1e601231d79792c6c50b430e3`；实现引用保留最初核对的 `14c089322ba14c06b65fcb17d9ecdfd4d807b8d3`。期间两次开发资料变更已核对，最终净差异仅删除三份本机开发 Skill，产品实现未变。版本与测试归属见 [[syntheses/lunaverse-ide-calibration-2026-09]]；这不是实时订阅。
 
-完整设计 + 实测修正：lunaverse-ide 仓 `docs/design/2026-06-02-style-system-langfuse-migration-design.md`。
+## 当前选择权威
 
-## 迁移前的碎片化
+`bundled-style-packs.ts` 明确列出三个随包 ID：`impasto-huan`、`flat-falling`、`impasto-arcane`，对应 family `impasto_huan`、`flat_falling`、`impasto_arcane`。包中有 style manifest、prompt、reference 资源及共享 workflow/production policy；完整 recipe 不是一段可随意替换的 prompt 文本。
 
-同一份「风格」散在四处，互不一致：
-- **style_config 表 / `styles.json`** — `render_all.py` 真正读的渲染数据源（16 family，含各 `-scene`/`-outfits`/`-edit` 变体）。
-- **style-prompts MCP**（`korean-manga-style` 8 条细分 prompt）— asset-prompt-generator agent skill 用的**另一层**（不同 model 体系 nano-banana、动态 reference 路由、character|scene enum）。
-- **IDE `nrbi-styles.json`** — host 的本地兜底 catalog。
-- **IDE `langfuse-prompts.ts`** — 半成品 Langfuse reader，硬编码 5 个**不存在**的占位 prompt 名 + **没设 User-Agent**，所以从来没真连上过，永远静默回退本地。
+加载时按文件内容形成 revision hash；可复制到按 revision 命名的用户存储，以免应用更新使既有引用失效。若安装没有完整 built-in packs，代码明确报错，不以“远端有一行目录”假装包完整。
 
-## 四条锁定决策
+`localFirstStyleCatalog` 当前只合入完整 local pack，并不调用其 legacy remote callback；`mergeLocalStyleCatalogRows` 过滤新选择集合，避免旧/custom/cloud 行在刷新时重新成为新生产选项。旧数据保留在磁盘与冻结运行中，不能因此直接删除。
 
-1. **后台权威源 = Langfuse**（`prompt.mobai-game.com`，project `assets-produce`）。
-2. **彻底切换**：Python 渲染管线也直接读 Langfuse，render 侧 `styles.json` 降为应急兜底。
-3. **IDE 完整 CRUD + sync**：查看/编辑/新建/归档、改 model、参考图上传 R2、版本历史 + 回滚，编辑后 sync 到 Langfuse，promote production 前过结构 lint 闸。
-4. **数据范围 = 只迁 16 个 family**。`korean-manga-style` MCP 那 8 条细分 prompt 是独立层，**本次不迁、不动**（列为 follow-up）。
+## 书籍风格与运行模板
 
-## 实测硬约束（踩过的坑，务必记住）
+本书选择写入 `.lunaverse/production/active-style.json`，字段为 `version=1`、`activeProfile`、`catalogRevision`、`activatedAt`。写入采用相邻锁和原子 rename，避免并发产生混合身份。
 
-- **Cloudflare 1010**：`prompt.mobai-game.com` 在 CF bot 防护后，**每个请求必须带 User-Agent**（urllib 默认 UA 被 1010 拦）。既有 Go 客户端 `vendor/assetctl/internal/skills/langfuse.go` 用 `assetctl-skills/0.1`；本次 TS/Python 客户端统一用 `lunaverse-ide-styles/0.1`。
-- **真凭据在 `assets-produce/.env`**（`pk-lf-338a…`）。`lunaverse-backend/.env` 的 `LANGFUSE_*` 是占位假值（`pk-lf-x`，len 9）→ 401。已把真 key 拷进（gitignored）`lunaverse-ide/.env`，host（`readDotEnv(root)`）和 render（`ENV_FILES`）都从这一处读。
-- **命名 `style_<name>`**，对齐 `skill_<name>`；config 里放 `category/model/reference_urls/family/variant/placeholder/aspect/generated_preview_url`。render 只读 `prompt` + `config.reference_urls`，IDE 读其余 → 双消费方契约只共享这两项，防漂移。
-- **参考图先 OSS→R2 镜像**（`mirror_oss_to_r2.py`，25 张）再 seeding，config 存 R2 URL，零 OSS 泄漏。
+记录的 catalogRevision 是来源证据，不是永远冻结生产的锁。新生产仍需解析现行可用目录；精确 prompt/reference 在各 production execution template 固定。退役 profile 对新生产会报明确问题；允许历史预览的路径不能自动授权继续用退役模板出新素材。
 
-## 渲染侧三层兜底（永不 hard-fail）
+## 仍存在的兼容面
 
-`render_all.py` 的 `_load_styles()`：① Langfuse production（成功后原子写 cache）→ ② `styles-cache.json`（last-known-good，gitignored，自动刷新）→ ③ `styles.json`（最深静态兜底）。`STYLES_JSON=<path>` 是逃生舱强制本地。实测断网/缺凭据都正确降级。
+`gateway-style-catalog.ts`、`gateway-style-write.ts`、`gateway-style-versions.ts` 和 Langfuse store 仍在仓库，宿主的部分 headless/管理路径仍消费认证网关目录。它们存在不表示每个运行时入口都采用同一数据源，也不能用一个旧 Langfuse URL 代替当前 recipe。
 
-## 六波实施（均已合 `feat/assetctl-foundation`）
+扩展 manifest 仍贡献 `lunaverse.styles.langfuse.*` 设置；这些是兼容/管理面，不是普通成员必须配置的生产秘密。不要复制其他仓库 `.env` 的“真 key”，不要将管理员凭据写到书籍或 Wiki；普通操作使用当前登录与宿主提供的入口。
 
-| 波 | 内容 | commit |
-|---|---|---|
-| W1 | seeding 脚本 + 16 family 推 Langfuse production（参考图全 R2） | `91b3341` |
-| W2 | IDE host 读路径重写（动态枚举 `style_*` + UA + 凭据接线） | `4ed828f` |
-| W5 | Python render 读 Langfuse + 三层兜底 | `ff5d8f0` |
-| W3 | host 写/sync/promote 闸/版本回滚/R2 上传 | `55603b8` |
-| W4 | webview 完整 CRUD UI（StyleList/StyleDetail/SyncBar/VersionHistory/ReferenceManager） | `67b76f2` |
-| W6 | styles.json 降级为应急快照（README）+ store CRUD 单测 | `fcf7ba1` / `7ad5ee2` |
+## 2026-06 记录如何使用
 
-验证：典型链路 IDE 改→Langfuse→render 生效已分段证；render `_load_styles` 实测 source=langfuse 取到 16 条 R2-ref；TS 788+12+7、Python 6 单测全绿。
+六月的 16-family seeding、旧 style_* 命名、Cloudflare 1010、OSS→R2 reference 镜像、Python 三层 fallback 只说明当次迁移和故障背景，不能证明今天目录数量、线上配置或已安装 IDE 的权限。历史全文见 [校准前版本](https://github.com/cdotlock/mob-wiki/blob/20b102e7a516d6f15cb66383a8c98eed4be4d68a/wiki/concepts/style-langfuse-migration.md)。
+
+维护时先确认受影响的是新风格选择、历史预览、管理写入还是某个 production template，再追踪对应源文件。若本地与远端目录不同，不直接把其中一份覆盖到所有入口。
+
+相关：[[concepts/lunaverse-ide-skills-and-production]] · [[concepts/assets-produce-ide-workspace-contract]] · [[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 核对来源
+
+- [packages/ls-workshop/src/bundled-style-packs.ts](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/ls-workshop/src/bundled-style-packs.ts)
+- [packages/ls-workshop/src/local-first-style-catalog.ts](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/ls-workshop/src/local-first-style-catalog.ts)
+- [packages/ls-workshop/src/active-style-authority.ts](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/ls-workshop/src/active-style-authority.ts)
+- [packages/ls-workshop/src/gateway-style-catalog.ts](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/ls-workshop/src/gateway-style-catalog.ts)
+- [packages/ls-workshop/src/platform-adapter.ts](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/ls-workshop/src/platform-adapter.ts)
+- [packages/ls-workshop/package.json](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/ls-workshop/package.json)
+- [本次原始核对记录](../../raw/2026-09-15-lunaverse-ide-main-calibration.md)
+- [补充验证与最终主线差异](../../raw/2026-09-15-lunaverse-ide-calibration-verification.md)
+- [最终主线与开发指南撤回](../../raw/2026-09-15-lunaverse-ide-calibration-final-main.md)

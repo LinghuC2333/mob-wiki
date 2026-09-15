@@ -1,10 +1,24 @@
 ---
 title: Assets-Produce
-tags: [agent, opencode, assets, video, prompt, cli]
-sources: [raw/2026-05-11-assets-produce-local-videoctl-cleanup.md]
-created: 2026-05-11
-updated: 2026-05-11
+tags:
+- agent
+- opencode
+- assets
+- video
+- prompt
+- cli
+sources:
+- raw/2026-05-11-assets-produce-local-videoctl-cleanup.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-05-11'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：当前 IDE Skill 的 authoring authority 已在 IDE agents/**/skills/**；素材执行以宿主、现役 CLI 和完整 Skill 包为准。本页独立 assets-produce 产品与当时迁移/冻结记录保留，不代表今天要先启动该平台才能使用 IDE。
+> 当前入口：[[concepts/lunaverse-ide-skills-and-production]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 Assets-Produce is the agent-native asset production platform that turns prompt workflows into a local CLI, opencode tools, and eventually WebUI/API surfaces. As of 2026-05-11, it has absorbed the useful video-prompt lessons from [[entities/video-agent-claude-wangbo]] and the image/material prompt lessons from [[entities/agent-forge]], while removing old reference folders from the active repository.
 

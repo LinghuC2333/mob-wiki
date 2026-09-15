@@ -1,10 +1,25 @@
 ---
-title: 角色表情插帧实施方案
-tags: [rife, interpolation, animation, cocos, client, spec]
-created: 2026-06-29
-updated: 2026-06-30
-sources: []
+title: 历史｜角色表情插帧实施方案
+tags:
+- rife
+- interpolation
+- animation
+- cocos
+- client
+- spec
+created: '2026-06-29'
+updated: '2026-09-15'
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
+status: historical
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：这是当时的特定素材管线、实验或事故记录，不是当前 IDE 的恢复/部署 runbook。现行注册表已移除独立 matting、upscale-image 等旧工具，透明角色生产已变化；不能据此批量重渲、删除缓存、部署旧远端服务或断言历史测试今天仍通过。
+> 当前入口：[[concepts/assetctl-integration-contract]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 角色 look 切换（编译为 `char_show`）原本是瞬间换图，没有过渡。本方案用神经网络插帧（RIFE）生成中间帧，让"同角色同服装、动作小"的换表情/微动作丝滑过渡；其余一律保持瞬间切换。**Phase 1 已真正接进 Web 端**（生产代码，非 demo），核心运行时已在真实浏览器 E2E 验证；Phase 2 推广到 Android/iOS（同模型转 ncnn）。
 

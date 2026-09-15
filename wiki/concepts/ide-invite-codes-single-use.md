@@ -1,10 +1,24 @@
 ---
-title: IDE Single-Use Invite Codes
-tags: [backend, ide, invite, auth, ops]
-created: 2026-06-12
-updated: 2026-06-12
-sources: []
+title: 历史｜IDE Single-Use Invite Codes
+tags:
+- backend
+- ide
+- invite
+- auth
+- ops
+created: '2026-06-12'
+updated: '2026-09-15'
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
+status: historical
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：这是六月 App Backend 中 IDE 邀请/限流的实现与上线记录；IDE Cloud 权威已迁至独立仓库。客户端仍有邀请登录和认证网关，但本次没有复验 Cloud 数据模型、额度默认、限流数字、未用邀请码数量或生产 SQL。不能照下文旧表/迁移指令维护当前 IDE 身份服务。
+> 当前入口：[[concepts/lunaverse-ide-release-and-operations]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 [[entities/lunaverse-backend]] 的 IDE beta 邀请注册用 **DB 里的单次使用邀请码**。本页是设计决策 + 数据模型 + 运维知识；逐条可照抄的命令在仓库 `docs/ide-invite-codes-runbook.md`（canonical），env 类配置见 [[concepts/railway-production-deploy]] 的姊妹文档 `docs/ide-backend-env-runbook.md`。
 

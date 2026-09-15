@@ -1,10 +1,27 @@
 ---
 title: mobai-agent
-tags: [agent, orchestrator, lunaverse, bun, llm, mcp]
-sources: [raw/2026-04-14-mobai-agent-memory.md, raw/2026-04-14-orchestrator-skill.md, raw/2026-04-14-mobai-agent-soul.md, raw/2026-04-14-cli-gateway-server-layer-design.md]
-created: 2026-04-14
-updated: 2026-04-14
+tags:
+- agent
+- orchestrator
+- lunaverse
+- bun
+- llm
+- mcp
+sources:
+- raw/2026-04-14-mobai-agent-memory.md
+- raw/2026-04-14-orchestrator-skill.md
+- raw/2026-04-14-mobai-agent-soul.md
+- raw/2026-04-14-cli-gateway-server-layer-design.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-14'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：独立 mobai-agent 主调度器与 IDE 内置 Lunaverse Agent 不是同一运行实现。IDE 当前由 ls-agent/agent-runtime 承载 Pi；本页 11 builtin tools 与旧 config.yaml 不能作为当前 IDE 工具/配置清单。
+> 当前入口：[[concepts/lunaverse-ide-ai-integration]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 Master AI agent orchestrator for the Lunaverse content production platform. Drives an end-to-end pipeline that converts novels into screenplays, videos, and playable games through natural language commands. Coordinates [[entities/dramatizer]], [[entities/agent-forge]], [[entities/lunaverse-backend]], and [[entities/lunaverse-client]] as a unified control plane.
 

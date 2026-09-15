@@ -1,10 +1,25 @@
 ---
 title: CLI Gateway
-tags: [microservice, http, cli, cloud, deployment, protocol]
-sources: [raw/2026-04-14-cli-gateway-server-layer-design.md, raw/2026-04-14-mobai-agent-memory.md]
-created: 2026-04-14
-updated: 2026-04-14
+tags:
+- microservice
+- http
+- cli
+- cloud
+- deployment
+- protocol
+sources:
+- raw/2026-04-14-cli-gateway-server-layer-design.md
+- raw/2026-04-14-mobai-agent-memory.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-14'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：这里的独立 /exec 服务不是当前 IDE Control CLI，也不是 IDE Cloud 模型/技能网关。四套旧部署与命令集仍为历史来源记录，不能用于判断当前桌面能力或在线状态。
+> 当前入口：[[concepts/lunaverse-ide-release-and-operations]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 Lightweight HTTP microservice deployed alongside each Lunaverse platform service. Enables remote CLI command execution while preserving the full CLI experience -- progressive discovery, help caching, and self-correction all work identically whether commands execute locally or remotely. The gateway is the key infrastructure piece that allows [[entities/mobai-agent]] to control distributed services as if they were local.
 

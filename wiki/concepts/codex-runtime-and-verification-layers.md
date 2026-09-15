@@ -1,11 +1,25 @@
 ---
-title: codex 运行时（IDE 内） — auth 模型 + 验证层级
-created: 2026-05-21
-updated: 2026-05-22
-tags: [lunaverse-ide, codex, agent-adapter, auth, verification, codex-shim]
-status: draft
-sources: []
+title: 历史｜codex 运行时（IDE 内） — auth 模型 + 验证层级
+created: '2026-05-21'
+updated: '2026-09-15'
+tags:
+- lunaverse-ide
+- codex
+- agent-adapter
+- auth
+- verification
+- codex-shim
+status: historical
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：旧 Codex 0.130 + Responses shim + CODEX_HOME 验证链已不是当前产品运行时。当前主 Agent 是 Pi，普通用户走统一登录；以下 env、binary 路径、L0–L2c 测试数字和已通结论只对原日期有效。不要从其他项目拷密钥或运行旧 smoke 来验证当前 IDE。
+> 当前入口：[[concepts/lunaverse-ide-ai-integration]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 # codex 运行时（IDE 内） — auth 模型 + 验证层级
 

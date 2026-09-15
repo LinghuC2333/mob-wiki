@@ -1,10 +1,25 @@
 ---
-title: Lunaverse 全量改名迁移方案（lunaverse → Lunaverse / LS → Lunascripts / .ls → .ls）
-tags: [rename, migration, lunaverse, lunascripts, decision-record]
-sources: [raw/2026-06-06-lunaverse-rename-recon.md]
-created: 2026-06-06
-updated: 2026-06-06
+title: 历史｜2026-06 Lunaverse 改名方案（映射失真，禁止直接执行）
+tags:
+- rename
+- migration
+- lunaverse
+- lunascripts
+- decision-record
+sources:
+- raw/2026-06-06-lunaverse-rename-recon.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-06-06'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: historical
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：本页是六月改名方案，且正文曾被机械替换，出现 .ls→.ls、同名仓库→同名仓库等失真映射，不能作为可执行改名表。当前桌面权威是 MobAI-Inc/lunaverse-ide，语言工具 lsc、规范后缀 .ls、书籍 books/<id>；旧 raw 保留作历史证据，不再执行本页的跨仓迁移、DB 列/存档重命名。
+> 当前入口：[[entities/lunaverse-ide]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 本页是 "lunaverse → **Lunaverse**"、"LS（Lunascripts）→ **Lunascripts**，扩展名 `.ls`/`.ls`/`.md` → **.ls**" 全量改名的执行方案与建议。改名横跨 **9 个独立 git 仓库**、约 **1 万处字符串占用** + **~575 个脚本文件需物理改名**，且文件扩展名当前是「三套并存」。本方案的核心主张：**把改动分成"安全文本层"与"高危身份/状态/契约层"两类，前者机械批量、后者带兼容垫片分阶段切换，外部平台身份默认保留为 legacy、但携带旧名的仓库全部改名**。证据见 [source](../raw/2026-06-06-lunaverse-rename-recon.md)。
 

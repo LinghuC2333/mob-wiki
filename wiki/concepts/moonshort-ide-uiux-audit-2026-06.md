@@ -1,10 +1,22 @@
 ---
-title: Moonshort IDE UI/UX Audit + Fix Log (2026-06)
-created: 2026-06-06
-updated: 2026-06-06
-tags: ["moonshort-ide", "uiux", "audit"]
-sources: []
+title: 历史｜Moonshort IDE UI/UX Audit + Fix Log (2026-06)
+created: '2026-06-06'
+updated: '2026-09-15'
+tags:
+- moonshort-ide
+- uiux
+- audit
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
+status: historical
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：这里只记录六月那次 UI 审计及热补，不表示今天安装版经过视觉、交互、可访问性复验。现行产品入口是 Library、统一 Agent、Gallery、Voice Casting、F Studio、Preview 与 Release Center；本次仅核对源码，未运行 UI 审计。
+> 当前入口：[[entities/lunaverse-ide]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 ## TL;DR
 

@@ -1,10 +1,24 @@
 ---
-title: "mobai-agent Server Layer"
-tags: [http, websocket, api, web-client, server, react]
-sources: [raw/2026-04-14-cli-gateway-server-layer-design.md]
-created: 2026-04-14
-updated: 2026-04-14
+title: mobai-agent Server Layer
+tags:
+- http
+- websocket
+- api
+- web-client
+- server
+- react
+sources:
+- raw/2026-04-14-cli-gateway-server-layer-design.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-14'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：此页是 mobai-agent HTTP/WebSocket server，不是 IDE 内置 Pi runtime host。不要把它的端口、会话 schema 或 Web UI 当作 Lunaverse IDE 的启动条件；独立服务未在本次复验。
+> 当前入口：[[concepts/lunaverse-ide-ai-integration]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 # mobai-agent Server Layer
 

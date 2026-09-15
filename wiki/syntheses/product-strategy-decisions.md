@@ -1,10 +1,22 @@
 ---
 title: 产品战略决策记录
-tags: [strategy, decisions, product, ai-native]
-sources: [raw/2026-04-15-product-strategy-thinking.md]
-created: 2026-04-15
-updated: 2026-04-15
+tags:
+- strategy
+- decisions
+- product
+- ai-native
+sources:
+- raw/2026-04-15-product-strategy-thinking.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-15'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：本页保留战略决策理由，不作为实时服务清单。技术实现侧现行创作入口见 Lunaverse IDE；不能因战略里引用 Dramatizer/Agent-Forge 就推断桌面仍使用旧四 Agent 管线，也不据此重写历史产品决策。
+> 当前入口：[[entities/lunaverse-ide]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 本文记录 MobAI 产品的核心战略决策及其背后的推理。不是 PRD 摘要，而是"为什么我们这样做而不是那样做"的完整论证。每一个设计决策都有明确的前因后果和参照系。
 

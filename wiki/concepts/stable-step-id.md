@@ -1,10 +1,24 @@
 ---
 title: Stable Step ID & Content-Addressed Cursor
-tags: [lunaverse, backend, ls, cursor, remix, addressing]
-sources: [docs/superpowers/specs/2026-04-26-stable-step-id-design.md]
-created: 2026-04-27
-updated: 2026-04-27
+tags:
+- lunaverse
+- backend
+- ls
+- cursor
+- remix
+- addressing
+sources:
+- docs/superpowers/specs/2026-04-26-stable-step-id-design.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-27'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：当前 LS 4.0 rollout 明确保留既有 step ID tags 和 MC staging 标识，存量内容 audit_only。此处早期 ID/cursor 设计与迁移记录保留；不能因内心独白更名而重铸已发布步骤或改玩家存档。
+> 当前入口：[[concepts/lunaverse-ide-ls-contract]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 # Stable Step ID & Content-Addressed Cursor
 

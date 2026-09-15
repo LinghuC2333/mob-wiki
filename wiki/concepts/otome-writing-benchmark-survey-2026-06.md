@@ -1,10 +1,22 @@
 ---
 title: 乙女小说写作 Benchmark 调研 + 自建指标草案（2026-06-04）
-updated: 2026-06-04
-tags: [benchmark, evaluation, otome, llm-as-judge, model-selection]
-created: 2026-06-04
-sources: []
+updated: '2026-09-15'
+tags:
+- benchmark
+- evaluation
+- otome
+- llm-as-judge
+- model-selection
+created: '2026-06-04'
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：这是六月 benchmark 调研和指标草案，不是当前 IDE 的实际通过率或执行许可。此轮没有运行付费评测，现役审查和进度以当前 Skill/报告/任务范围为准。
+> 当前入口：[[concepts/lunaverse-ide-creator-progress]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 # 乙女小说写作 Benchmark 调研 + 自建指标草案
 

@@ -1,10 +1,27 @@
 ---
 title: Dramatizer
-tags: [go, cli, pipeline, llm, screenplay, mcp, interactive-fiction]
-sources: [raw/2026-04-14-dramatizer-skill.md, raw/2026-04-14-mobai-agent-memory.md, raw/2026-04-14-cli-gateway-server-layer-design.md]
-created: 2026-04-14
-updated: 2026-04-14
+tags:
+- go
+- cli
+- pipeline
+- llm
+- screenplay
+- mcp
+- interactive-fiction
+sources:
+- raw/2026-04-14-dramatizer-skill.md
+- raw/2026-04-14-mobai-agent-memory.md
+- raw/2026-04-14-cli-gateway-server-layer-design.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-14'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：当前团队桌面创作入口为 Lunaverse IDE 的统一 Agent/Skill/宿主生产链；这份独立 Dramatizer 的 15-stage/CLI/MCP 文档不应被当成 IDE 必需架构。原项目实现和在线服务未在本次复验。
+> 当前入口：[[entities/lunaverse-ide]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 Go binary that converts long novels into interactive mini-drama screenplays through a 15-stage LLM pipeline. Exposes four integration interfaces: CLI (Cobra), HTTP REST API (Chi), MCP server (mcp-go), and interactive TUI (Bubble Tea). Produces branching story trees with multiple endings, growth paths, and minigame integration points for the [[entities/lunaverse-backend]] game engine.
 

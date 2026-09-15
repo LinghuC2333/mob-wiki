@@ -1,19 +1,28 @@
 ---
-title: Data-Silence 失败类（VN Pipeline · 作者漏 render 家族）
-updated: 2026-04-22T17:00
+title: 历史｜Data-Silence 失败类（VN Pipeline · 作者漏 render 家族）
+updated: '2026-09-15'
 tags:
-  - vn-pipeline
-  - failure-pattern
-  - character-architect
-  - cast-coverage-auditor
-  - episode-writer
-  - no-rules
+- vn-pipeline
+- failure-pattern
+- character-architect
+- cast-coverage-auditor
+- episode-writer
+- no-rules
 source_specs:
-  - /Users/august/MobAI/norules-vn/docs/superpowers/specs/2026-04-22-character-first-appearance-intro-design.md
+- /Users/august/MobAI/norules-vn/docs/superpowers/specs/2026-04-22-character-first-appearance-intro-design.md
 sibling_family: syntheses/render-time-silent-drop-failure-class
-created: 2026-04-22
-sources: []
+created: '2026-04-22'
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
+status: historical
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：这些是历史创作管线的失效模式与审查经验，不是当前 IDE 固定 gate 集或每次必须重跑的流程。经验可以迁移，具体审核、产物、语言和独立 reviewer 要求须读取现役 Skill 与当前书版本；未复验历史样本数字。
+> 当前入口：[[concepts/lunaverse-ide-skills-and-production]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 # Data-Silence 失败类
 

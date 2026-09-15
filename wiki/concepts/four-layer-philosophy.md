@@ -1,10 +1,22 @@
 ---
-title: "SKILL / CLI / MCP / API Four-Layer Philosophy"
-tags: [architecture, agent, design-pattern, framework]
-sources: [raw/2026-04-14-cli-gateway-server-layer-design.md]
-created: 2026-04-14
-updated: 2026-04-14
+title: SKILL / CLI / MCP / API Four-Layer Philosophy
+tags:
+- architecture
+- agent
+- design-pattern
+- framework
+sources:
+- raw/2026-04-14-cli-gateway-server-layer-design.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-14'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：四层方法论可以保留，但它不是绕过 IDE 宿主的授权。当前普通媒体必须从 lunaverse_produce 进入，写作在主会话按 Skill 执行；CLI/MCP/API 的存在不等于可任选接口重复发起付费工作。
+> 当前入口：[[concepts/lunaverse-ide-skills-and-production]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 # SKILL / CLI / MCP / API Four-Layer Philosophy
 

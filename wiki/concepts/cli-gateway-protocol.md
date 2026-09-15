@@ -1,10 +1,24 @@
 ---
-title: "CLI Gateway Protocol"
-tags: [protocol, http, cli, microservice, security, streaming]
-sources: [raw/2026-04-14-cli-gateway-server-layer-design.md]
-created: 2026-04-14
-updated: 2026-04-14
+title: CLI Gateway Protocol
+tags:
+- protocol
+- http
+- cli
+- microservice
+- security
+- streaming
+sources:
+- raw/2026-04-14-cli-gateway-server-layer-design.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-14'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：本页通用远程 /exec 网关协议与 Lunaverse IDE Control 的本机实例路由、capability schema、request/job/receipt 协议是不同系统。不要拿旧 /exec bearer 或命令白名单替代 IDE 登录与宿主准入；通用网关当前部署未复验。
+> 当前入口：[[concepts/lunaverse-ide-release-and-operations]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 # CLI Gateway Protocol
 

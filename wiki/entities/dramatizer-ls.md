@@ -1,10 +1,22 @@
 ---
 title: Dramatizer-LS
-tags: [dramatizer, ls, assets, skills, partially-deprecated]
-sources: []
-created: 2026-05-03
-updated: 2026-05-30
+tags:
+- dramatizer
+- ls
+- assets
+- skills
+- partially-deprecated
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-05-03'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：当前 IDE 自带并发布领域 Skill；不得按本页早期上游搬迁链寻找现役手册或直接复用旧脚本目录。原项目的历史管线与实验结果保留，本次没有独立复验该仓现状。
+> 当前入口：[[concepts/lunaverse-ide-skills-and-production]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 > **⚠️ 2026-06-05 修正 — assets-produce 已废弃，下面这条迁移说法作废。** novel→`.ls` 的 authoring skills（novel-evaluator / character-architect / bible-reviewer / entity-planner / planner-reviewer / entity-normalizer / episode-writer / episode-writer-reviewer 等）**权威副本现在在 [[entities/lunaverse-ide]] 仓库的 `agents/adaptation/skills/<skill>/SKILL.md`**（已实地确认为完整 live skill，非归档桩），**IDE 是当前唯一标准**。本页下方所有"迁到 / 权威在 assets-produce"叙述（2026-05-19 写入）均已过期、待整体校订。
 >

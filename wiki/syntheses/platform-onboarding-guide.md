@@ -1,10 +1,22 @@
 ---
 title: MobAI 平台全景指南
-tags: [onboarding, platform, game-design, architecture]
-sources: [raw/2026-04-15-platform-onboarding-guide.md]
-created: 2026-04-15
-updated: 2026-04-15
+tags:
+- onboarding
+- platform
+- game-design
+- architecture
+sources:
+- raw/2026-04-15-platform-onboarding-guide.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-15'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：团队创作者的当前桌面入口已是 Lunaverse IDE：Library → 主 Agent/Skill → Gallery/Voice → Preview/Release Center。下文 Dramatizer/Agent-Forge 全景是较早平台说明；玩家经济、推荐、收费与线上流程没有在本次对照 IDE 的校准中复验。
+> 当前入口：[[entities/lunaverse-ide]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 MobAI 是一个 AI 驱动的互动剧情游戏平台，对标抖音 + 红果短剧。本文从玩家视角走一遍完整体验，然后拆解游戏设计、数值系统和技术架构。读完应该能说清楚：产品在做什么、游戏怎么玩、数值怎么转、代码在哪里。
 

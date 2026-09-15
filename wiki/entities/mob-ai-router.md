@@ -1,11 +1,31 @@
 ---
 title: Mob AI Router
-tags: [gateway, llm, api, openai-compatible, embeddings, rerank, image, video, jina, claude, deepseek, gpt]
-sources: [raw/2026-05-25-mob-ai-router-integration.md]
+tags:
+- gateway
+- llm
+- api
+- openai-compatible
+- embeddings
+- rerank
+- image
+- video
+- jina
+- claude
+- deepseek
+- gpt
+sources:
+- raw/2026-05-25-mob-ai-router-integration.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
 source_url: https://ai.mob-ai.cn/integration.html
-created: 2026-05-28
-updated: 2026-05-28
+created: '2026-05-28'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：IDE 当前主 Agent 是 Pi，经统一登录网关和认证模型目录选择原生协议，不再沿用本页历史 Codex/shim 调用方描述。下文 router 模型清单、余额错误、端点和在线 smoke 属原日期，未据 IDE 仓证明今天仍可用。
+> 当前入口：[[concepts/lunaverse-ide-ai-integration]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 Public-facing LLM router that fronts Claude, DeepSeek, GPT, Jina, and image / video providers behind a single OpenAI-compatible HTTP surface. All Lunaverse services that need a foundation model talk to this router instead of provider-native APIs, so virtual keys, quota, billing, and provider failover are managed in one place. Canonical machine-readable integration guide is the upstream HTML page at <https://ai.mob-ai.cn/integration.html> (mirrored verbatim into [raw/2026-05-25-mob-ai-router-integration.md](../raw/2026-05-25-mob-ai-router-integration.md), upstream last-modified 2026-05-25).
 

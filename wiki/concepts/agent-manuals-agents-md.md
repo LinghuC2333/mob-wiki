@@ -1,44 +1,78 @@
 ---
-title: Agent 手册机制 — per-agent AGENTS.md（codex 项目规则）
-updated: 2026-06-08
-created: 2026-06-08
-tags: ["agents", "lunaverse-ide", "configuration"]
-sources: []
+title: Lunaverse IDE — 产品规则、领域 Skill 与作品上下文
+updated: '2026-09-15'
+created: '2026-06-08'
+tags:
+- agents
+- lunaverse-ide
+- configuration
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+- raw/2026-09-15-lunaverse-ide-calibration-final-main.md
+- raw/2026-09-15-lunaverse-ide-calibration-verification.md
+last_reviewed: '2026-09-15'
+status: current-source-snapshot
+source_revision: 442fd53692d077c1e601231d79792c6c50b430e3
+evidence_revision: 14c089322ba14c06b65fcb17d9ecdfd4d807b8d3
 ---
 
-# Agent 手册机制：per-agent `AGENTS.md`
+当前 IDE 不再把四份 per-agent AGENTS.md stage 到 Codex Home 来启动四个 Workshop Agent。产品运行规则、完整领域 Skill、本书事实和用户指令是不同层级的上下文；维护时应改拥有该事实的源头。
 
-Moonshort IDE 的 Production Workshop 每个 agent（adaptation / asset / audio / minigame）都带一份 `agents/<id>/AGENTS.md` —— 它就是该 agent 的**操作手册**，以 markdown 写，等同 codex 的项目规则（project rules），每次该 agent 跑 codex 时作为 standing instructions 加载。
+本页校准截至 main `442fd53692d077c1e601231d79792c6c50b430e3`；实现引用保留最初核对的 `14c089322ba14c06b65fcb17d9ecdfd4d807b8d3`。期间两次开发资料变更已核对，最终净差异仅删除三份本机开发 Skill，产品实现未变。版本与测试归属见 [[syntheses/lunaverse-ide-calibration-2026-09]]；这不是实时订阅。
 
-## 为什么
+## 谁拥有哪类知识
 
-agent 之前在对话指令里只有一句 `You are the X agent` —— 没有使命、边界、流程。模型手握一堆 skill 却不知道自己是谁、该按什么顺序干、哪些不归自己，于是乱规划、越界（典型：Novel Adaptation 让它写 MSS，它一路规划到素材生成）、甚至假装 / 漏报 skill。手册把这些一次写清。
+| 材料 | 权威来源 | 用途与边界 |
+|---|---|---|
+| 固定运行规则 | `packages/agent-runtime/src/lunaverse-system-prompt.ts` | 当前主 Agent 的行为、宿主工具、生产/发布与恢复边界 |
+| 产品能力卡 | `agents/_shared/product/product-capabilities.json` | 告诉创作者能做什么、在哪做，不装长篇流程或实现细节 |
+| 领域工作流 | `agents/**/skills/**` | 按触发条件读取正文及明确引用的 companion |
+| LS 语法 | 固定上游 LS-SPEC 及同步镜像 | 不能从历史方案、口头偏好或私有脚本创造新语法 |
+| 本书事实 | 规范作品文件、宿主提供的书籍绑定/进度快照 | 决定当前版本、范围与缺项；不是新的用户命令 |
+| 本书用户偏好 | 当前对话和可适用的本书规则 | 不得覆盖宿主安全/付费/发布约束或扩张已授权范围 |
+| 开发者本机指导 | 本地 AGENTS.md | 本次主线不跟踪这些文件，不能把某台机器私有规则当成已发布产品手册 |
 
-## 手册结构（6 段）
+## 加载与执行
 
-1. **身份与边界** — 使命 + 你交付什么 + 不归你管（点名移交到正确 agent）
-2. **完整流水线** — 本 agent 的阶段顺序 + 每步 gate
-3. **每阶段 I/O 契约** — 读哪个上游、写什么、落哪
-4. **跨 agent 交接** — 上游谁先跑、下游谁消费（IDE 把源头一条 n2m 流水线拆成 4 个用户手动选的 agent 后，这条最容易漏，也最关键）
-5. **方法论 / 质量基线** — 决定 HOW 做得好，不只是 WHAT
-6. **依赖 / 参考**
+Workbench 准备 `.lunaverse/skills/`；模型先读目录元数据，匹配任务后读取 Skill 本文，再按说明读具体 references。读取了 Skill 不代表执行完毕，参考文件也不会因为与正文在同一目录就自动进入上下文。
 
-## 怎么加载（代码）
+正文与伴随资源在 Git、R2 包、认证 catalog、本地 receipt 之间具有可追溯身份。投影目录名可能因防同名冲突而调整，例如两个 cover 领域；开发应改 Git 原始目录，而非缓存或旧 `CODEX_HOME`。
 
-`packages/mss-workshop/src/codex-home.ts`：
+固定系统规则和动态作品状态分开。当前轮尾部追加隐藏的状态上下文，有变化才附增量；压缩后失去基线时重附完整快照。这不应改写用户消息或被展示为用户新要求。
 
-- `loadAgentsMd(agentDir, agent)` 优先读 `<agentDir>/AGENTS.md`；没有就退回 `agentsMd(agent)` 生成的极简版（只有标题 + description + “skills 在目录里自己读”）。
-- `stageCodexHome` / `stageStableCodexHome` 把结果写进 `$CODEX_HOME/AGENTS.md`（和 `skills/` 一起 staged），codex 原生读取为 standing instructions。对话式 run 用稳定 home `项目根/.moonshort/codex-home/<agentId>/`，每轮 re-stage。
-- 若书项目根目录另有 `AGENTS.md`（用户为这本书写的偏好），codex 会叠加在上面 —— 这就是 per-book 的用户引导层（产品定边界靠 agent 手册，用户定偏好靠书项目的 AGENTS.md）。
+## 独立审查不是角色扮演
 
-## 关键决策（2026-06-08）
+普通任务由主 Agent 做；用户或适用 Skill 明确要求独立审查时才调用真实独立执行能力。只读 reviewer 返回完整报告与目的路径，主 Agent按原文保存，不代写其判断、不伪装子 Agent 已运行。
 
-- **手册 = 单一来源**。早期试过结构化的 manifest `charter` 字段 + per-turn 注入（`renderCharter`），已**退役**并入 `AGENTS.md`（commit `refactor(workshop): retire structured charter in favour of AGENTS.md manuals`）。改 agent 角色 / 流程只改那份 `.md`，markdown 热补即可，不必动代码。
-- 4 份手册是对照**源头项目 novels-to-moonscript**（canonical pipeline `docs/pipeline-stage-numbering.md` + `SKILLS-GUIDE.md` + 各 `SKILL.md`）加上 IDE 真实 skill 集，用多 agent workflow **对抗式核验**过的（两条视角：事实正确性 + 能力退化风险）。核出的真问题样例：asset 把已退役的批控制器（asset-prompt-generator / asset-renderer / asset-reviewer）当现役报出；audio 的 `music-spec` 其实是只回显输入的占位 skill；minigame 的 Deep 三层定制核心能力差点被漏写（会严重削弱它）；封面归属 adaptation（书级身份封面）vs asset（集封面 / 宣传）重叠；adaptation 交付应是 `ep_{N}_final.mss` 而非 `.md`。
+reviewer 的报告应绑定真实被审版本与范围。文件存在、出现 PASS 字样或侧栏 Done 都不足以证明质量；还要读结论、缺项和未解决问题。需要冷读的流程先收冷读报告，再给作者解释。
 
-## 怎么改 / 加新 agent
+## 如何更新
 
-- **改手册**：直接编辑 `agents/<id>/AGENTS.md`（纯 markdown）。host 端无需重建（每轮从 agentDir 重新 staged）；热补到已装 .app 时拷 `…/extensions/moonshort-mss-workshop/agents/<id>/AGENTS.md`。
-- **加新 agent**：在 `agents/<id>/` 放 `agent.json` + `skills/` + 一份 `AGENTS.md`，`loadAgentsMd` 会自动捡起；没写则退回极简版（不报错）。
+1. 先确定是产品固定行为、某个 Skill、共享 LS 契约还是某本书偏好，避免把所有规则塞进一份 AGENTS.md。
+2. 在相应权威源做最小改动；技能要连同引用资源一起验证并发布。
+3. 跑当前源码支持的检查。`check-guidance` 的缺失本地 AGENTS.md 链接问题和 9 个本地指导测试 skip 已在校准报告如实记录。
+4. 查看接收端的真实版本/receipt。更新 Wiki 本身不会改变 IDE 运行规则，也不等于热补已安装 App。
 
-相关：[[entities/lunaverse-ide]] · [[concepts/assetctl-skills-sync-and-staging]]（skill 进 `CODEX_HOME` 的同一条 staging 链）· [[concepts/codex-runtime-and-verification-layers]]（codex 怎么起 + auth 怎么传）
+本页原来的 `packages/mss-workshop/src/codex-home.ts`、`stageStableCodexHome` 和“拷四份手册就完成部署”的说明已退役。历史原文可在 [校准前版本](https://github.com/cdotlock/mob-wiki/blob/20b102e7a516d6f15cb66383a8c98eed4be4d68a/wiki/concepts/agent-manuals-agents-md.md) 查阅。
+
+相关：[[concepts/lunaverse-ide-ai-integration]] · [[concepts/lunaverse-ide-skills-and-production]] · [[concepts/lunaverse-ide-creator-progress]]。
+
+## 开发指导的撤回记录与权限边界
+
+最终 main `442fd53692d077c1e601231d79792c6c50b430e3` 已删除上一观察版本的 `docs/development/README.md`、`git-and-pull-request.md`、`worktree-build-test.md`；三份 `.codex/skills` 本机开发 Skill 也没有恢复。不要把短暂存在的开发指南、其中的 Beta 热补要求或 Git 交付约定当成当前仓库已采纳的通用规范。下方 `49adbc3fb31362195ed4b6e1a7111aaab3e89dff` 的三个链接仅供历史追溯。
+
+这一变化不删除产品 `agents/**/skills/**` 的 33 个领域 Skill，不改变运行时或发布实现。本机 AGENTS.md 与本次用户授权仍须在执行具体任务时分别读取；Wiki 直接 main 授权不自动扩大到 IDE 源码或部署。本次没有执行 IDE 热补、安装或发布。
+
+## 核对来源
+
+- [packages/agent-runtime/src/lunaverse-system-prompt.ts](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/agent-runtime/src/lunaverse-system-prompt.ts)
+- [agents/_shared/product/product-capabilities.json](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/agents/_shared/product/product-capabilities.json)
+- [packages/ls-workbench/src/cline-skill-projection.ts](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/packages/ls-workbench/src/cline-skill-projection.ts)
+- [docs/runbooks/creator-step-progress.md](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/docs/runbooks/creator-step-progress.md)
+- [test/agent-guidance-contract.test.mjs](https://github.com/MobAI-Inc/lunaverse-ide/blob/14c089322ba14c06b65fcb17d9ecdfd4d807b8d3/test/agent-guidance-contract.test.mjs)
+- [本次原始核对记录](../../raw/2026-09-15-lunaverse-ide-main-calibration.md)
+- [已撤回的历史开发指南：README.md](https://github.com/MobAI-Inc/lunaverse-ide/blob/49adbc3fb31362195ed4b6e1a7111aaab3e89dff/docs/development/README.md)
+- [已撤回的历史开发指南：git-and-pull-request.md](https://github.com/MobAI-Inc/lunaverse-ide/blob/49adbc3fb31362195ed4b6e1a7111aaab3e89dff/docs/development/git-and-pull-request.md)
+- [已撤回的历史开发指南：worktree-build-test.md](https://github.com/MobAI-Inc/lunaverse-ide/blob/49adbc3fb31362195ed4b6e1a7111aaab3e89dff/docs/development/worktree-build-test.md)
+- [补充验证与最终主线差异](../../raw/2026-09-15-lunaverse-ide-calibration-verification.md)
+- [最终主线与开发指南撤回](../../raw/2026-09-15-lunaverse-ide-calibration-final-main.md)

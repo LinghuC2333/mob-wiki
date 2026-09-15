@@ -1,10 +1,21 @@
 ---
-title: V10 抠图遗漏 sharpen_alpha bug + 修复（2026-05-28）
-updated: 2026-05-28
-created: 2026-05-28
-tags: ["matting", "incident"]
-sources: []
+title: 历史｜V10 抠图遗漏 sharpen_alpha bug + 修复（2026-05-28）
+updated: '2026-09-15'
+created: '2026-05-28'
+tags:
+- matting
+- incident
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
+status: historical
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：这是当时的特定素材管线、实验或事故记录，不是当前 IDE 的恢复/部署 runbook。现行注册表已移除独立 matting、upscale-image 等旧工具，透明角色生产已变化；不能据此批量重渲、删除缓存、部署旧远端服务或断言历史测试今天仍通过。
+> 当前入口：[[concepts/assetctl-integration-contract]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 # V10 抠图遗漏 sharpen_alpha 步骤 — halo 根因 + 修复
 

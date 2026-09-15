@@ -1,10 +1,25 @@
 ---
-title: Production Pipeline — Two-Phase IDE Submit + Admin Activate
-tags: [backend, ide, release, manifest, admin]
-sources: [raw/2026-05-30-backend-production-pipeline-two-phase.md]
-created: 2026-05-30
-updated: 2026-05-30
+title: 历史｜Production Pipeline — Two-Phase IDE Submit + Admin Activate
+tags:
+- backend
+- ide
+- release
+- manifest
+- admin
+sources:
+- raw/2026-05-30-backend-production-pipeline-two-phase.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-05-30'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: historical
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：本页保留 2026-05 App Backend 的 submit/admin-activate 设计。当前 IDE 客户端使用统一 JWT 的 /api/ide 路由与 Cloud workflow/readiness/fenced activation，不再只有四种状态；不要复用旧 admin cookie、SQL 或 activate 命令。独立 App Backend 当前实现/线上状态未在本次审计。
+> 当前入口：[[concepts/lunaverse-ide-release-and-operations]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 2026-05 在 [[entities/lunaverse-backend]] 上线的 "Plan A + C1" 重构：把单阶段 "IDE 一键 publish 上线" 改成两阶段 **submit (IDE) → activate (admin)**，分离录入与对玩家可见，错版可 reject / rollback。配套大量 schema 收敛（`NovelDraftAsset` / `Novel.status` / `NovelCharacter.voiceId` / `characterBible` 全部移除），统一 manifest 入口写所有素材 + 语音 + episode + prompt 元信息。源文件契约：[`docs/ide-production-pipeline-migration.md`](https://github.com/cdotlock/lunaverse-backend/blob/main/docs/ide-production-pipeline-migration.md) + [`docs/operations/production-manifest-supabase-db.md`](https://github.com/cdotlock/lunaverse-backend/blob/main/docs/operations/production-manifest-supabase-db.md)。
 

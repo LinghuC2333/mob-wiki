@@ -1,10 +1,24 @@
 ---
-title: SFX Pipeline Design
-updated: 2026-05-12
-tags: [sfx, audio, pipeline, elevenlabs, normalizer]
-created: 2026-05-12
-sources: []
+title: 历史｜SFX Pipeline Design
+updated: '2026-09-15'
+tags:
+- sfx
+- audio
+- pipeline
+- elevenlabs
+- normalizer
+created: '2026-05-12'
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
+status: historical
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：这是上游旧生产阶段与脚本约定的历史快照。当前 IDE 的普通媒体生产先经宿主 lunaverse_produce；BGM/SFX、CG 形态、videoctl 与规范目录以当前专题为准。下文的阶段号、模型、文件路径和验收数字未作为现行合同复验。
+> 当前入口：[[concepts/lunaverse-ide-skills-and-production]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 # SFX Pipeline Design — `sfx-normalizer` skill + dramatizer integration
 

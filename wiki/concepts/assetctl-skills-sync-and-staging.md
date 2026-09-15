@@ -1,11 +1,27 @@
 ---
-title: assetctl skills sync + Block 2/3 staging（codex skill 加载链路）
-created: 2026-05-20
-updated: 2026-05-21
-tags: [assetctl, block-2, block-3, codex, langfuse, skill-loader, skill-staging, lunaverse-ide]
-status: draft
-sources: []
+title: 历史｜assetctl skills sync + Block 2/3 staging（codex skill 加载链路）
+created: '2026-05-20'
+updated: '2026-09-15'
+tags:
+- assetctl
+- block-2
+- block-3
+- codex
+- langfuse
+- skill-loader
+- skill-staging
+- lunaverse-ide
+status: historical
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：Langfuse skill overlay、23 个旧 Skill、四个领域 Codex Home 及当时 push 状态均为历史。当前 Skill 走 Git → R2 完整包 → 认证网关 → 本地 receipt；文中旧授权/未推送说明不改变今天各仓的权限约定。
+> 当前入口：[[concepts/lunaverse-ide-skills-and-production]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 # assetctl skills sync + Block 2/3 staging（codex skill 加载链路）
 

@@ -1,10 +1,20 @@
 ---
 title: lunaria-web
-updated: 2026-07-01
-created: 2026-07-01
-tags: ["lunaria-web", "writing", "web"]
-sources: []
+updated: '2026-09-15'
+created: '2026-07-01'
+tags:
+- lunaria-web
+- writing
+- web
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：Lunaria Web 与桌面 IDE 分属不同实现；本页七月的能力对比、共享网关试验和已关闭 gap 不能外推到当前 Pi/Cloud/Skill/发布协议。Web 本身当前部署未在本次复验。
+> 当前入口：[[entities/lunaverse-ide]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 # lunaria-web
 

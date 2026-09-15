@@ -1,10 +1,23 @@
 ---
-title: "Cloud Deployment Architecture"
-tags: [deployment, cloud, architecture, distributed, migration]
-sources: [raw/2026-04-14-cli-gateway-server-layer-design.md]
-created: 2026-04-14
-updated: 2026-04-14
+title: Cloud Deployment Architecture
+tags:
+- deployment
+- cloud
+- architecture
+- distributed
+- migration
+sources:
+- raw/2026-04-14-cli-gateway-server-layer-design.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-04-14'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：本页是早期平台分布式部署方案，不是当前 IDE Cloud 拓扑。IDE Cloud 已有独立权威仓，桌面、Router、Skill、Cloud、App Backend、更新组件分别拥有发布身份；本次未验证这些线上部署。
+> 当前入口：[[concepts/lunaverse-ide-release-and-operations]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 # Cloud Deployment Architecture
 

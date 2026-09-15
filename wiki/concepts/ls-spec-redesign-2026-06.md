@@ -1,13 +1,27 @@
 ---
-title: LS Spec Redesign (2026-06-04)
-tags: [ls, redesign, spec-change, decision-record, breaking-change]
+title: 历史｜LS Spec Redesign (2026-06-04)
+tags:
+- ls
+- redesign
+- spec-change
+- decision-record
+- breaking-change
 sources:
-  - /Users/Clock/lunaverse/lunascripts/LS-SPEC.md
-  - /Users/Clock/lunaverse/lunascripts/docs/JSON-OUTPUT.md
-  - /Users/Clock/lunaverse/lunascripts/docs/ENGINE-INTEGRATION.md
-created: 2026-06-04
-updated: 2026-06-08
+- /Users/Clock/lunaverse/lunascripts/LS-SPEC.md
+- /Users/Clock/lunaverse/lunascripts/docs/JSON-OUTPUT.md
+- /Users/Clock/lunaverse/lunascripts/docs/ENGINE-INTEGRATION.md
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+created: '2026-06-04'
+updated: '2026-09-15'
+last_reviewed: '2026-09-15'
+status: historical
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 历史状态说明**：下文为六月 LS 规范/迁移快照，不是当前作者手册。IDE 已消费 4.0.0：INNER_THOUGHT/inner_thought、MC 最近 look、作者 signal 全大写，并保留明确版本兼容；不可混合旧例子或据此改写存量内容。
+> 当前入口：[[concepts/lunaverse-ide-ls-contract]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
+
+## 历史正文（原日期记录，非当前执行指令）
 
 # LS Spec Redesign (2026-06-04)
 

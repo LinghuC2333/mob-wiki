@@ -1,11 +1,22 @@
 ---
 title: MP Cross-Signal Author Guidance
-description: 多人模式（MP）小说写作 Agent 设计指引 — block-on-cross-signal 运行时下的同步密度设计。Cross-signal 引用决定双人剧情哪里汇合（旧 every-choice-blocks → 新 block-on-cross-signal），revival anchor 是顺带的二级效果
-updated: 2026-06-08
-created: 2026-06-08
-tags: ["multiplayer", "writing", "signals"]
-sources: []
+description: 多人模式（MP）小说写作 Agent 设计指引 — block-on-cross-signal 运行时下的同步密度设计。Cross-signal
+  引用决定双人剧情哪里汇合（旧 every-choice-blocks → 新 block-on-cross-signal），revival anchor 是顺带的二级效果
+updated: '2026-09-15'
+created: '2026-06-08'
+tags:
+- multiplayer
+- writing
+- signals
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：这份多人引擎/写作指引不拥有当前 IDE 的 LS 语法。新作者 signal 使用 v4 的全大写规则；文中引擎自动生成的 mp_* 状态不要误判为作者变量并批量改名。多人后端时序与实现未在本次复验。
+> 当前入口：[[concepts/lunaverse-ide-ls-contract]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 # MP Cross-Signal Author Guidance（多人模式写作指引）
 

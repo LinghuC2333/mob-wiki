@@ -1,10 +1,20 @@
 ---
 title: 团队行动计划
-tags: [plan, roadmap, status]
-created: 2026-04-15
-updated: 2026-05-14
-sources: []
+tags:
+- plan
+- roadmap
+- status
+created: '2026-04-15'
+updated: '2026-09-15'
+sources:
+- raw/2026-09-15-lunaverse-ide-main-calibration.md
+last_reviewed: '2026-09-15'
+status: partial-ide-calibration
 ---
+
+<!-- ide-calibration-2026-09-15 -->
+> **2026-09-15 IDE 关联校准**：新增本轮 IDE Wiki 校准的独立覆盖账本。下文旧全团队计划、负责人、已完成/待办状态未被本轮自动重置；IDE 当前待修项与未验收边界见校准报告，不把本轮 Wiki 完成等同其他团队任务完成。
+> 当前入口：[[syntheses/lunaverse-ide-calibration-2026-09]]；覆盖与限制：[[syntheses/lunaverse-ide-calibration-2026-09]]。
 
 这是一个持续维护的计划文件。所有人都可以更新自己的进度和下一步。每次更新时修改 `updated` 日期。
 
