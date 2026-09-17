@@ -65,3 +65,14 @@ Character(novelId, id, name, description, isProtagonist)、Outfit(characterId, k
 - 只有状态为已就绪且有文件地址的素材才进映射表，目前没有生图和上传，所以线上映射表实际为空，编译行为和以前一致
 
 未做的仍是分期表里的第二、三期，生图、上传、CG 与小游戏的生产接入。
+
+## 第二期决策（2026-09-17 wangbo 定）
+
+设计文档在 IDE-for-ugc 仓库 `docs/superpowers/specs/2026-09-17-assets-phase2-design.md`，分支 `feat/assets-phase2`。产品形态对齐 lunaverse-ide 的 Production Workshop（`packages/ls-workshop`）。
+
+- 剧情与素材不放同一个目录树。书内加二级 tab，剧情和素材各带一套侧栏，分类树保留第一期结构
+- 立绘走 ide 的三级链。角色人像、每套服装一张定妆图、每个神态一张立绘，下游拿上游当参考图。上游重生成后下游只标「参考图已更新」，不自动作废
+- 素材状态照 ide 四态，缺、已生成、已通过、已打回。已生成和已通过都进映射表，通过只是审阅标记
+- 生成走 mob-ai 网关 `/v1/generations` 异步模式。立绘链用 image-gpt 带参考图加透明背景，网关直接出透明 png，不做抠图。人像没有上游，先普通出图再拿自己当参考出透明版。背景和 CG 图用 image-seedream-pro，CG 视频用 video-seedance
+- 生成图和上传图都存团队 R2，对象 key 为 `novels/<novelId>/<kind>/<assetKey>/<versionId>.<ext>`，每次生成或上传留一个版本可回滚
+- 这一期不做音乐、音效、小游戏的生成，只留上传。不做封面和风格模板在线编辑

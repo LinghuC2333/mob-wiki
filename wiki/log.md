@@ -250,3 +250,4 @@ title: Operation Log
 [2026-09-17 18:50] UPDATE: concepts/ls-web-editor-asset-flow — 第一期落地，17 个提交，记下实施时定的规则（立绘不可手工登记、单套服装跳过第二段补全、映射表只收 ready）
 [2026-09-17 18:50] UPDATE: entities/ls-web-editor — 进度补 PR #2 与素材层第一期，合并顺序 #1 #2 素材层
 [2026-09-17 19:30] UPDATE: entities/ls-web-editor — 素材层第一期 PR #3 已开并部署上线
+[2026-09-17 20:40] UPDATE: concepts/ls-web-editor-asset-flow — 第二期决策，对齐 ide 三级链与四态，生成走 mob-ai 网关，存 R2
