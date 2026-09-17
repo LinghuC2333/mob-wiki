@@ -87,3 +87,17 @@ Character(novelId, id, name, description, isProtagonist)、Outfit(characterId, k
 - 网关异步提交的任务号在 `result.taskId` 和 `task.id`，失败原因在 `result.error.message`，成功结果在 `output.url`。带参考图生视频时 minimax 要求比例为 adaptive
 - 本机没有直连 DNS，全走代理。S3Client 要挂 https-proxy-agent，Node 的 fetch 要开 `NODE_USE_ENV_PROXY=1`，Railway 上两者都是空操作
 - 多个实现子代理共用一个工作区会在 git 暂存区上撞车，后来改成一次只跑一个实现者
+
+## 第三期，对齐 ide 的画风包与人像链（2026-09-18）
+
+设计文档 `docs/superpowers/specs/2026-09-17-assets-phase3-design.md`，计划 `docs/superpowers/plans/2026-09-17-assets-phase3.md`，分支 `feat/assets-phase3`，16 个任务。起因是 wangbo 指出网页版的六套风格和一步出人像都不是 ide 现在的做法，ide 的 origin/main（2026-09-18）已经是三个内置风格包加多段人像链，角色图由供应商原生出透明 png。
+
+落地的事。
+
+- 三个风格包 impasto-arcane、impasto-huan、flat-falling 原样复制进 `src/content/style-packs/`，参数从每个包顶层的 style.json 读，参考图由 `pnpm seed:style-packs` 幂等传到 R2 的 `style-packs/` 前缀下。书的风格改为三个 familyId，旧的六套删除
+- 人像链改成四级，脸、人像、定妆图、立绘。选脸走 Legnext 的 Midjourney（`/v1/diffusion` 出四宫格，`/v1/upscale` 放大选中的一张，type 传 0），参数照包里的 stylize、chaos、styleWeight，arcane 是 catalog-reference 要角色的身份参考图并带 `--oref`，huan 和 flat 是 direct-generation。四宫格和单张都落 R2，因为 Legnext 链接七天失效。重抽一批会把脸退回待选并让下游标「参考图已更新」
+- 人像分全身初稿、风格重绘、人体修复三个按钮，参考图顺序照 ide，全身风格板、人体比例图、已选的脸，重绘和修复再加初稿。角色图末尾追加 ide 的 native transparent alpha 契约原文。image-gpt 的透明模式要求至少一张参考图，带图时 quality high、2K、9:16 出 1152 × 2048 的 RGBA png
+- 背景带包的背景板，CG 图带角色板和背景板加剧本里出场角色的人像，CG 视频带 CG 的图加风格板。minimax-h3-fast 最多收两张参考图，视频只带图加一张角色板
+- 角色多了性别、年龄、身份参考图，身份图只认 R2 上本站的地址，识别到 Midjourney 参数样式的文本会被剔掉
+
+本地对真实 Legnext、网关和 R2 跑过。flat_falling 走完整条链，huan 和 arcane 各选过脸。Midjourney 会对身份参考图做内容审核，用生成的动漫脸当身份图被拒过一次，换成包里的真人脸就过了。

@@ -53,7 +53,7 @@ Welcome to the team knowledge base.
 - [[concepts/ide-tool-gateway-concurrency-limit]] — 历史｜IDE Tool Gateway Concurrency Limits；非当前 IDE 执行指南
 - [[concepts/ls-format]] — 历史｜Lunascripts (LS) 格式规范；非当前 IDE 执行指南
 - [[concepts/ls-spec-redesign-2026-06]] — 历史｜LS Spec Redesign (2026-06-04)；非当前 IDE 执行指南
-- [[concepts/ls-web-editor-asset-flow]] — LS 在线编辑器的角色与素材流程设计（2026-09-17）：先登记角色与服装标签、写作时按词表补全立绘名、素材页扫全书出清单再生图；三期落地，第一期 2026-09-17 在 feat/assets-phase1 完成，第二期设计已定（三级链、四态、mob-ai 网关生图、R2）
+- [[concepts/ls-web-editor-asset-flow]] — LS 在线编辑器的角色与素材流程设计（2026-09-17）：先登记角色与服装标签、写作时按词表补全立绘名、素材页扫全书出清单再生图；三期落地，第一期 2026-09-17 在 feat/assets-phase1 完成，第二期上线；第三期对齐 ide 的三个画风包与四级人像链，选脸走 Legnext
 - [[concepts/lunaria-web-agent-v2]] — Lunaria Web — Agent v2（渐进式技能加载 + 双模式 + 持久化大纲 + AI 写提示词）；本轮核对 IDE 关联边界，其余原日期记录
 - [[concepts/lunaverse-ide-ai-integration]] — Lunaverse IDE — Pi 运行时、统一登录与 AI 交互；固定主线校准 2026-09-15
 - [[concepts/lunaverse-ide-creator-progress]] — Lunaverse IDE — 作品步骤、审查与完成状态；固定主线校准 2026-09-15
