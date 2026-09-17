@@ -76,3 +76,14 @@ Character(novelId, id, name, description, isProtagonist)、Outfit(characterId, k
 - 生成走 mob-ai 网关 `/v1/generations` 异步模式。立绘链用 image-gpt 带参考图加透明背景，网关直接出透明 png，不做抠图。人像没有上游，先普通出图再拿自己当参考出透明版。背景和 CG 图用 image-seedream-pro，CG 视频用 video-seedance
 - 生成图和上传图都存团队 R2，对象 key 为 `novels/<novelId>/<kind>/<assetKey>/<versionId>.<ext>`，每次生成或上传留一个版本可回滚
 - 这一期不做音乐、音效、小游戏的生成，只留上传。不做封面和风格模板在线编辑
+
+## 第二期落地（2026-09-17 夜）
+
+实施计划 `docs/superpowers/plans/2026-09-17-assets-phase2.md`，16 个任务在分支 `feat/assets-phase2` 上做完，约 30 个提交。本地对着真实网关和 R2 跑通了整条链，背景（水彩）、人像（日系动画，两步透明）、定妆图、神态立绘、CG 图（厚涂）、CG 视频，风格选择对结果生效。
+
+实施时发现并定下的事。
+
+- 网关上 seedream 和 seedance 两个模型当天都在供应商侧失败（seedance 的上游 key 显示未激活），背景和 CG 图临时改用 image-gpt（2K、16:9），CG 视频改用 video-minimax-h3-fast（5 秒、768P、比例 adaptive）。模型名集中在 `src/server/gateway-models.ts`，恢复后改一处
+- 网关异步提交的任务号在 `result.taskId` 和 `task.id`，失败原因在 `result.error.message`，成功结果在 `output.url`。带参考图生视频时 minimax 要求比例为 adaptive
+- 本机没有直连 DNS，全走代理。S3Client 要挂 https-proxy-agent，Node 的 fetch 要开 `NODE_USE_ENV_PROXY=1`，Railway 上两者都是空操作
+- 多个实现子代理共用一个工作区会在 git 暂存区上撞车，后来改成一次只跑一个实现者
