@@ -240,3 +240,13 @@ title: Operation Log
 [2026-09-15 01:21] UPDATE: wiki/concepts/lunaverse-ide-release-and-operations.md — 最终对齐 442fd5369，撤回资料不作现行规范。
 [2026-09-15 01:21] UPDATE: wiki/syntheses/lunaverse-ide-calibration-2026-09.md — 最终对齐 442fd5369，撤回资料不作现行规范。
 [2026-09-15 01:21] UPDATE: wiki/index.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+
+[2026-09-16 08:10] CREATE: entities/ls-web-editor — LS 在线编辑器立项，设计文档确认（CodeMirror 文本编辑 + 斜杠菜单，Postgres + Google 登录，校验代理 Railway lsc）
+[2026-09-16 17:30] UPDATE: entities/ls-web-editor — 15 个任务在本机分支完成，110 单测 + 3 e2e 绿，待 Google OAuth 凭据与 Railway 部署
+[2026-09-17 13:45] UPDATE: entities/ls-web-editor — 部署到 Railway，https://lunascripts.up.railway.app，web + Postgres，手动 railway up
+[2026-09-17 14:40] UPDATE: entities/ls-web-editor — 加站内语法手册 /guide，内容在 src/content/guide.ts，例子有解析器测试
+[2026-09-17 15:20] CREATE: concepts/ls-web-editor-asset-flow — 角色与素材流程产品设计，三期落地
+[2026-09-17 15:40] UPDATE: concepts/ls-web-editor-asset-flow — 结构定稿，书分剧情与素材两半，素材按映射表分类
+[2026-09-17 18:50] UPDATE: concepts/ls-web-editor-asset-flow — 第一期落地，17 个提交，记下实施时定的规则（立绘不可手工登记、单套服装跳过第二段补全、映射表只收 ready）
+[2026-09-17 18:50] UPDATE: entities/ls-web-editor — 进度补 PR #2 与素材层第一期，合并顺序 #1 #2 素材层
+[2026-09-17 19:30] UPDATE: entities/ls-web-editor — 素材层第一期 PR #3 已开并部署上线
