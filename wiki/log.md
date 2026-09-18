@@ -253,3 +253,4 @@ title: Operation Log
 [2026-09-17 20:40] UPDATE: concepts/ls-web-editor-asset-flow — 第二期决策，对齐 ide 三级链与四态，生成走 mob-ai 网关，存 R2
 [2026-09-17 23:50] UPDATE: concepts/ls-web-editor-asset-flow — 第二期落地，模型临时切换、网关返回体形状、代理与并发实施的经验
 [2026-09-18 05:30] UPDATE: concepts/ls-web-editor-asset-flow — 第三期落地，三个风格包、四级人像链、Legnext 选脸，本地三套画风都跑通
+[2026-09-18 06:40] UPDATE: concepts/ls-web-editor-asset-flow — 记下 ide 的模特池选脸线，网页版暂不接

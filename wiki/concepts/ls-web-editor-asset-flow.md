@@ -101,3 +101,7 @@ Character(novelId, id, name, description, isProtagonist)、Outfit(characterId, k
 - 角色多了性别、年龄、身份参考图，身份图只认 R2 上本站的地址，识别到 Midjourney 参数样式的文本会被剔掉
 
 本地对真实 Legnext、网关和 R2 跑过。flat_falling 走完整条链，huan 和 arcane 各选过脸。Midjourney 会对身份参考图做内容审核，用生成的动漫脸当身份图被拒过一次，换成包里的真人脸就过了。
+
+## 待办，模特池选脸（2026-09-18 wangbo 决定暂不做）
+
+ide 的选脸在出四宫格之前还有一步找模特。角色档案拼成 casting query 打 Lunaverse 网关的 `/api/ide/portrait-v2/casting/search`，后面接 Model Search v1，货源是 ModelManagement 的授权模特照片，返回最多三个候选，用户点一个当身份参考图，再拿它做 `--oref` 出脸。只有 catalog-reference 的画风（arcane）走这条线，18 岁以下角色不走。网页版第三期跳过了这一步，arcane 的身份图由用户自己上传。接进来需要一个能调该网关的服务端 token，或 Model Search v1 的地址和 key，wangbo 决定先不做。
