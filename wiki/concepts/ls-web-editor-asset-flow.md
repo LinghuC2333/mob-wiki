@@ -105,3 +105,15 @@ Character(novelId, id, name, description, isProtagonist)、Outfit(characterId, k
 ## 待办，模特池选脸（2026-09-18 wangbo 决定暂不做）
 
 ide 的选脸在出四宫格之前还有一步找模特。角色档案拼成 casting query 打 Lunaverse 网关的 `/api/ide/portrait-v2/casting/search`，后面接 Model Search v1，货源是 ModelManagement 的授权模特照片，返回最多三个候选，用户点一个当身份参考图，再拿它做 `--oref` 出脸。只有 catalog-reference 的画风（arcane）走这条线，18 岁以下角色不走。网页版第三期跳过了这一步，arcane 的身份图由用户自己上传。接进来需要一个能调该网关的服务端 token，或 Model Search v1 的地址和 key，wangbo 决定先不做。
+
+## 第四期，立绘神态词库（2026-09-19 wangbo 定）
+
+wangbo 看到角色页服装行只有一颗「生成缺的 N 张」，说用户根本不知道缺的是哪张，要的是一个能选神态动作的图库，和角色立绘词表对上。全书先统一挑一套，进到某个角色的某套服装还能单独加词、去词，最后每套服装得到一份明确的立绘清单。服装本身这期不做选购。
+
+落地方式。词表照旧是 look-vocab.json 的 45 个神态词和 17 个动作词，图库里的单位是 token，`demeanor` 或 `demeanor-action`，动作挂在神态上是可选项，不做神态乘动作的全组合。存三个字段，`Novel.looks` 是全书默认，`Outfit.lookAdds` 和 `Outfit.lookRemoves` 是每套服装的增减，有效清单等于全书去掉 removes 再接上 adds。`listAssets` 把有效清单展开成立绘行（`fromLook`），所以侧栏计数、顶部「生成全部缺的」和角色页看到的是同一份清单，剧本里引用到的行照旧并进来。词库长出的行不预先落库，点生成时先登记再排队，和剧本引用的行走同一条路。
+
+页面。「角色立绘」列表页多一个入口「神态动作词库」，路由 `/assets/sprites/looks`，45 张神态卡按词表顺序排，点卡选中，选中的卡下面可以「+ 动作」挂组合，底部固定一条「已选 N 张 · 保存到全书」。角色页每套服装一行，行尾两颗按钮，「增减神态」打开同一个组件的服装模式（卡片分全书、本套、已去掉三种态），「生成缺的立绘」先弹确认，把要生成的每一张按中文释义和 key 列出来再排队；定妆图没出图时列表里只有定妆图。每格标签是中文释义，剧本引用过的加「剧本」小标，格子菜单有「从这套去掉」。
+
+评审里修掉的两处。已登记但剧本没引用的词库立绘原来会被算成「未使用」，会进清理和跳过补齐，改成只要在清单里就不算未使用。「从这套去掉」一次 PATCH 整份替换两个数组，连点两格会丢第一次，加了锁。
+
+代码在 LinghuC2333/IDE-for-ugc 的 feat/assets-phase3 分支（PR #5 里），spec 是 docs/superpowers/specs/2026-09-19-sprite-looks-design.md。
