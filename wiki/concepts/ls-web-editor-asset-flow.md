@@ -117,3 +117,9 @@ wangbo 看到角色页服装行只有一颗「生成缺的 N 张」，说用户�
 评审里修掉的两处。已登记但剧本没引用的词库立绘原来会被算成「未使用」，会进清理和跳过补齐，改成只要在清单里就不算未使用。「从这套去掉」一次 PATCH 整份替换两个数组，连点两格会丢第一次，加了锁。
 
 代码在 LinghuC2333/IDE-for-ugc 的 feat/assets-phase3 分支（PR #5 里），spec 是 docs/superpowers/specs/2026-09-19-sprite-looks-design.md。
+
+## 生成图去噪（2026-09-19 wangbo 定）
+
+wangbo 看线上立绘，皮肤和衣服上一片斑驳，一眼看出是噪点，要求所有生成图都去噪。查下来 gpt 出图不传 quality 时走 auto，线条发虚，先给五个图片阶段统一加了 quality: high，同一提示词对比锐度翻倍。去噪本身用 OpenCV 的非局部均值（fastNlMeansDenoisingColored，h=10），在线上那张立绘上比过 h=8/10/12/15、中值和双边滤波，h=10 把斑驳去干净、线条还在，h=15 开始塑料感。实现是 scripts/denoise.py，Node 侧 spawn 调用，静态图落地前过一遍，alpha 原样保留，视频和四宫格不碰；机器上没 cv2 就跳过原样存，版本参数里记 denoise: null。Railway 镜像加了 apk 的 py3-opencv。老图在大图里有一颗「去噪」按钮，压成一条新版本，版本列表标「去噪」。
+
+ide 那边的对应做法不一样，它的立绘链最后是 process-cutout，把原图送 Modal 上的 Real-ESRGAN 放大两倍再抠图，靠放大把细节做硬。网页版没有那套 Modal 凭据，也不需要放大，所以只做去噪。
