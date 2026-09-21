@@ -49,7 +49,8 @@ updated: '2026-09-21'
 | 接口 | 说明 |
 |---|---|
 | `GET /api/me` | 验证 token / 当前用户 |
-| `POST /api/runs` | 二选一：`{profile}` 直提 WorkProfile（推荐，跳过画像模型，从 embedding 起步）；或 `{work_title, files:[{path,text}]}` 走服务端抽画像。`size`/`sha256` 可选（服务端计算并校验）；路径可带顶层目录前缀；非允许清单文件跳过并在响应报 `skipped` |
+| `GET /api/profile-schema` | profile 字段说明、枚举值、归一化规则与示例（自描述） |
+| `POST /api/runs` | 二选一：`{profile}` 直提 WorkProfile（推荐，跳过画像模型，从 embedding 起步）；或 `{work_title, files:[{path,text}]}` 走服务端抽画像。profile 走宽容归一化：能修就修并在 `warnings` 里说明，只有无 cast / motifs+subject 皆空 / 非对象才 400。`size`/`sha256` 可选（服务端计算并校验）；路径可带顶层目录前缀；非允许清单文件跳过并在响应报 `skipped` |
 | `GET /api/runs?q=` | 列自己的记录 |
 | `GET /api/runs/{id}` | 状态、画像、结果、用量 |
 | `POST /api/runs/{id}/rerun` | 提交修改后 `profile` 派生新任务 |
@@ -62,7 +63,7 @@ updated: '2026-09-21'
 
 原设计是浏览器 `webkitdirectory` 选文件夹、客户端算 sha256/size、且要求提交文件全部命中允许清单。放宽后服务端自己 `findRoot` 定位导出层、自算 sha256/size、跳过非清单文件——API 调用方可以把整个导出目录文本直接塞进来。限制：≤500 文件、请求合计 ≤12MB、清单内合计 ≤4MB、必须含 `01-novel-evaluator/evaluation-report.md`。允许清单见 `src/lib/poster/allowlist.ts`。
 
-同日进一步开放 `profile` 直提：API 调用方提交符合 `WorkProfile` schema（`src/lib/poster/profile-schema.ts`，词表与海报标签同源）的结构化画像，校验后写入 `profile_auto`/`profile_final`，runner 从 `embedding` 起步——**不调画像模型**，单任务只剩 embed+pick 成本（实测 $0.03，约为文件路径的五分之一）。`profile` 与 `files` 互斥，同传返回 400。浏览器文件夹上传路径不变。
+同日进一步开放 `profile` 直提：API 调用方提交符合 `WorkProfile` schema（`src/lib/poster/profile-schema.ts`，词表与海报标签同源）的结构化画像，**宽容归一化**（`normalizeProfile`：枚举非法值就近兜底、中文 motif 丢弃、无 mc 提第一个、多 mc 保留第一个，全部写进响应 `warnings`）后写入 `profile_auto`/`profile_final`，runner 从 `embedding` 起步——**不调画像模型**，单任务只剩 embed+pick 成本（实测 $0.03，约为文件路径的五分之一）。只有三种情况 400：非对象、cast 空、motifs+subject 皆空。`profile` 与 `files` 互斥，同传 400。浏览器文件夹上传路径不变。`GET /api/runs/{id}` 返回的 results 里 candidates/picks 已注入 `thumb_url`/`image_url`（picks 另带 `path`/`title`），调用方拿到即可直接取图；消费约定是 **picks（grok 看图挑的 5 张）优先，candidates（规则分 top24）兜底**。
 
 ## 模型
 
