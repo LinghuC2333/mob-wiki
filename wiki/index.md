@@ -91,6 +91,7 @@ Welcome to the team knowledge base.
 - [[entities/lunaverse-backend]] — Lunaverse Backend；本轮核对 IDE 关联边界，其余原日期记录
 - [[entities/lunaverse-client]] — Lunaverse Client；本轮核对 IDE 关联边界，其余原日期记录
 - [[entities/lunaverse-ide]] — Lunaverse IDE；固定主线校准 2026-09-15
+- [[entities/lunaverse-poster-ref]] — Book Cover Match 海报参考站（Railway 线上服务，API token 接入 2026-09-21）
 - [[entities/mob-ai-router]] — Mob AI Router；本轮核对 IDE 关联边界，其余原日期记录
 - [[entities/mob-mini-agent]] — Pi-based company Agent foundation with Moonshot runtime practices, observability, and compaction safety
 - [[entities/mob-sandbox-ops]] — Self-hosted Daytona/OpenHands/Claude Code sandbox platform and operator runbook
