@@ -93,7 +93,7 @@ Welcome to the team knowledge base.
 - [[entities/lunaverse-backend]] — Lunaverse Backend；本轮核对 IDE 关联边界，其余原日期记录
 - [[entities/lunaverse-client]] — Lunaverse Client；本轮核对 IDE 关联边界，其余原日期记录
 - [[entities/lunaverse-ide]] — Lunaverse IDE；固定主线校准 2026-09-15
-- [[entities/lunaverse-poster-ref]] — Book Cover Match 海报参考站（Railway 线上服务，API token 接入 2026-09-21）
+- [[entities/lunaverse-poster-ref]] — Book Cover Match 海报参考站（2026-09-09 立项，Railway 线上服务）：飞书登录、导出包抽画像或 API 直提 profile、4538 张海报三版本各选 5 张；API token 接入与自动部署 2026-09-21；含页面、数据表、流水线、费用实测
 - [[entities/mob-ai-router]] — Mob AI Router；本轮核对 IDE 关联边界，其余原日期记录
 - [[entities/mob-mini-agent]] — Pi-based company Agent foundation with Moonshot runtime practices, observability, and compaction safety
 - [[entities/mob-sandbox-ops]] — Self-hosted Daytona/OpenHands/Claude Code sandbox platform and operator runbook
@@ -101,7 +101,6 @@ Welcome to the team knowledge base.
 - [[entities/mobai-image-site]] — mobai 生图网站（Midjourney via Legnext，2026-09-09 立项）：飞书登录限 mobai 租户、参考图存 R2、Legnext 提交与幂等保护、Railway 独立部署；生成链路与生图页已完成，待接真实密钥联调
 - [[entities/vibe-motion]] — AI-driven Remotion motion graphics workspace producing Lunaverse promo videos (9:16 portrait); lunaverse-intro delivered, lunaverse-app-promo iterating (72s + 30s/15s cuts, villain-season real assets, Breeze TTS)
 - [[entities/video-agent-claude-wangbo]] — Claude Code video shot prompt workflow with Seedance gateway, OSS validation, and ablation-backed skill package
-- [[entities/lunaverse-poster-ref-site]] — 海报参考站（2026-09-09 立项）：飞书登录限 mobai，浏览器本地筛导出包里的 7 类文本上传，claude-sonnet 抽画像 → jina 向量 → 规则打分 → grok 终选 5 张，每人每次匹配留记录，Next.js 16 + pg，底子 Novel Library，部署 Railway；代码 ~/Downloads/lunaverse-poster-ref
 
 ## Syntheses
 

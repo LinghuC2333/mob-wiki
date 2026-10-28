@@ -265,3 +265,4 @@ title: Operation Log
 [2026-09-10 02:10] UPDATE: entities/mobai-image-site V8.2 验证与 raw 参数差异
 [2026-09-10 02:40] UPDATE: entities/mobai-image-site 参数探针脚本与首次全跑结果
 [2026-09-13 08:17] INGEST: raw/2026-09-13-book-cover-match-handoff.md → entities/lunaverse-poster-ref-site — Book Cover Match 交接文档（飞书 QinBda16EoZE3PxwmjGcbQAknke），供封面生成 skill 规划使用
+[2026-10-27 22:00] MERGE: entities/lunaverse-poster-ref-site → entities/lunaverse-poster-ref — rebase 后两边各有一页海报参考站，合成一页（以远端 09-21 版为主体，补入立项设计的页面、数据表、流水线、允许清单、费用实测，过时说法注明日期），删除 lunaverse-poster-ref-site，index 去重
