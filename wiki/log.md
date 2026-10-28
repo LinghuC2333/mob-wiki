@@ -266,3 +266,5 @@ title: Operation Log
 [2026-09-10 02:40] UPDATE: entities/mobai-image-site 参数探针脚本与首次全跑结果
 [2026-09-13 08:17] INGEST: raw/2026-09-13-book-cover-match-handoff.md → entities/lunaverse-poster-ref-site — Book Cover Match 交接文档（飞书 QinBda16EoZE3PxwmjGcbQAknke），供封面生成 skill 规划使用
 [2026-10-27 22:00] MERGE: entities/lunaverse-poster-ref-site → entities/lunaverse-poster-ref — rebase 后两边各有一页海报参考站，合成一页（以远端 09-21 版为主体，补入立项设计的页面、数据表、流水线、允许清单、费用实测，过时说法注明日期），删除 lunaverse-poster-ref-site，index 去重
+[2026-10-27 23:20] INGEST: raw/2026-10-27-elvina-3d-character-practice.md → concepts/elvina-3d-character-pipeline — Elvina 可动 3D 角色制作实践（飞书 GmFEd…），一颗头只换嘴的表情做法、流程、坑、成本
+[2026-10-27 23:20] UPDATE: index.md — 新增 concepts/elvina-3d-character-pipeline

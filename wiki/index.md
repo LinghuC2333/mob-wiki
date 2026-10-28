@@ -44,6 +44,7 @@ Welcome to the team knowledge base.
 - [[concepts/dream-rec-trigger-v2-coexistence]] — Scope split between dream-rec (content-ranking) and dream trigger v2 (dream-timing): asset-by-asset decision matrix, three integration commits in `/tmp/msb-dream-rec` (not pushed), deferred items (event weight surface, cross-service vector read).
 - [[concepts/dream-trigger-v2-mechanical]] — Producer-side dream trigger v2 (2026-05-21): pure-mechanical evaluator (no LLM) — UserNovelProfile vector + weighted running mean + cosine drift + sharpness gates, replaces v1 single-gate. Drops phase dedup; first-dream保送 keeps committed_success ≥ 3.
 - [[concepts/dreaming-universe]] — 玩家画像触发的共享 Dream 支线宇宙：Episode graph + assignment-gated overlay + Python dream-agent
+- [[concepts/elvina-3d-character-pipeline]] — 可动 3D 角色制作流程（Elvina 实践 2026-10，Tripo + Blender）：T 字站姿分部件生成身体、Blender 手搭骨架；每种表情单独生成头（55+20 积分），成片只留一颗头，嘴部颜色+法线+形态键烘到主头上用「表情」滑杆切换；坑、成本、遗留问题、文件位置
 - [[concepts/episode-writer-music-strategy]] — 历史｜Episode Writer · BGM 策略 & music-normalizer 流程；非当前 IDE 执行指南
 - [[concepts/find-your-li-content-redesign-2026-08]] — Find Your LI（RC 匹配测试引流页）2026-08 内容改版：审查结论（模板填空结果页 / 题库信号失衡 stability+ 24:6 / 78% 用户同卡 / 中文混入 bug）+ v1.0 方案（15 题重制、100 角色专属内容库、稀有度蒙特卡洛、roast line、questions.json 单源 + vm 加载防双实现漂移）
 - [[concepts/four-layer-philosophy]] — SKILL / CLI / MCP / API Four-Layer Philosophy；本轮核对 IDE 关联边界，其余原日期记录
