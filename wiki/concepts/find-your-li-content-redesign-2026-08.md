@@ -1,5 +1,8 @@
 ---
 title: find-your-li-content-redesign-2026-08
+tags: [find-your-li, romance-club, quiz, growth]
+sources: [raw/find-your-li-content-prd-v1.md, raw/find-your-li-content-tech-design-v1.md]
+created: 2026-08-27
 updated: 2026-08-27
 ---
 
