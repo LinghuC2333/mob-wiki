@@ -107,6 +107,7 @@ Welcome to the team knowledge base.
 
 - [[syntheses/cloud-deployment-architecture]] — Cloud Deployment Architecture；本轮核对 IDE 关联边界，其余原日期记录
 - [[syntheses/data-silence-failure-class]] — 历史｜Data-Silence 失败类（VN Pipeline · 作者漏 render 家族）；非当前 IDE 执行指南
+- [[syntheses/lunaverse-meta-day1-retrospective-2026-10]] — Lunaverse Meta 首日投放复盘（美东 2026-10-28）：CPI 4.77、开场空白流失四成、0 付费、数据口径与下一轮动作
 - [[syntheses/lunaverse-ide-calibration-2026-09]] — Lunaverse IDE Wiki 整体校准 — 2026-09-15；固定主线校准 2026-09-15；最终对齐 main 442fd5369，含补充验证与开发指南撤回记录。
 - [[syntheses/lunaverse-rename-migration]] — 历史｜2026-06 Lunaverse 改名方案（映射失真，禁止直接执行）；非当前 IDE 执行指南
 - [[syntheses/platform-onboarding-guide]] — MobAI 平台全景指南；本轮核对 IDE 关联边界，其余原日期记录

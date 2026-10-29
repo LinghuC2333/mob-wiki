@@ -268,3 +268,5 @@ title: Operation Log
 [2026-10-27 22:00] MERGE: entities/lunaverse-poster-ref-site → entities/lunaverse-poster-ref — rebase 后两边各有一页海报参考站，合成一页（以远端 09-21 版为主体，补入立项设计的页面、数据表、流水线、允许清单、费用实测，过时说法注明日期），删除 lunaverse-poster-ref-site，index 去重
 [2026-10-27 23:20] INGEST: raw/2026-10-27-elvina-3d-character-practice.md → concepts/elvina-3d-character-pipeline — Elvina 可动 3D 角色制作实践（飞书 GmFEd…），一颗头只换嘴的表情做法、流程、坑、成本
 [2026-10-27 23:20] UPDATE: index.md — 新增 concepts/elvina-3d-character-pipeline
+[2026-10-29 12:30] INGEST: raw/2026-10-29-lunaverse-meta-day1-retrospective.md → syntheses/lunaverse-meta-day1-retrospective-2026-10 — Meta 首日投放复盘（飞书 YV5Ud…），广告明细、新用户漏斗、开场空白证据、数据口径、下一轮动作
+[2026-10-29 12:30] UPDATE: index.md — 新增 syntheses/lunaverse-meta-day1-retrospective-2026-10
