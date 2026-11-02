@@ -240,3 +240,5 @@ title: Operation Log
 [2026-09-15 01:21] UPDATE: wiki/concepts/lunaverse-ide-release-and-operations.md — 最终对齐 442fd5369，撤回资料不作现行规范。
 [2026-09-15 01:21] UPDATE: wiki/syntheses/lunaverse-ide-calibration-2026-09.md — 最终对齐 442fd5369，撤回资料不作现行规范。
 [2026-09-15 01:21] UPDATE: wiki/index.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-11-02 12:30] INGEST: raw/2026-11-02-lunaverse-new-user-dropoff-tracking-prd.md → concepts/lunaverse-new-user-dropoff-tracking — 新用户流失埋点需求 v0.1（飞书 H2kod…）
+[2026-11-02 12:30] UPDATE: index.md — 新增 concepts/lunaverse-new-user-dropoff-tracking
