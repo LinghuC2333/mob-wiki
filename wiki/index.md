@@ -44,7 +44,9 @@ Welcome to the team knowledge base.
 - [[concepts/dream-rec-trigger-v2-coexistence]] — Scope split between dream-rec (content-ranking) and dream trigger v2 (dream-timing): asset-by-asset decision matrix, three integration commits in `/tmp/msb-dream-rec` (not pushed), deferred items (event weight surface, cross-service vector read).
 - [[concepts/dream-trigger-v2-mechanical]] — Producer-side dream trigger v2 (2026-05-21): pure-mechanical evaluator (no LLM) — UserNovelProfile vector + weighted running mean + cosine drift + sharpness gates, replaces v1 single-gate. Drops phase dedup; first-dream保送 keeps committed_success ≥ 3.
 - [[concepts/dreaming-universe]] — 玩家画像触发的共享 Dream 支线宇宙：Episode graph + assignment-gated overlay + Python dream-agent
+- [[concepts/elvina-3d-character-pipeline]] — 可动 3D 角色制作流程（Elvina 实践 2026-10，Tripo + Blender）：T 字站姿分部件生成身体、Blender 手搭骨架；每种表情单独生成头（55+20 积分），成片只留一颗头，嘴部颜色+法线+形态键烘到主头上用「表情」滑杆切换；坑、成本、遗留问题、文件位置
 - [[concepts/episode-writer-music-strategy]] — 历史｜Episode Writer · BGM 策略 & music-normalizer 流程；非当前 IDE 执行指南
+- [[concepts/find-your-li-content-redesign-2026-08]] — Find Your LI（RC 匹配测试引流页）2026-08 内容改版：审查结论（模板填空结果页 / 题库信号失衡 stability+ 24:6 / 78% 用户同卡 / 中文混入 bug）+ v1.0 方案（15 题重制、100 角色专属内容库、稀有度蒙特卡洛、roast line、questions.json 单源 + vm 加载防双实现漂移）
 - [[concepts/four-layer-philosophy]] — SKILL / CLI / MCP / API Four-Layer Philosophy；本轮核对 IDE 关联边界，其余原日期记录
 - [[concepts/frame-interpolation-spec]] — 历史｜角色表情插帧实施方案；非当前 IDE 执行指南
 - [[concepts/gateway-bypass-and-origin-lockdown-2026-06-10]] — Gateway-bypass + Origin lockdown cutover 2026-06-10
@@ -80,6 +82,7 @@ Welcome to the team knowledge base.
 - [[concepts/unfolded-visual-novel]] — Unfolded 风格互动视觉小说展示形态与素材管线
 - [[concepts/villain-season-demo]] — 恶人季 Heart Signal NA otome 短剧 demo（3 EP + 1 dream，双语 EN+ZH 平行 novel，autoAssign + bonus_only 强制 dream，22 SFX/7 角色/6 BG/3 BGM，英文 Breeze 配音 + TTS 上 R2，机制全覆盖含 Remix/Dream/signal/affection/butterfly/achievement/trick/minigame）
 - [[concepts/ad-creative-pipeline-first-round-2026-11]] — 按作品投放素材制作流程（第一轮测试，2026-11-03）：MJ 定人物图、Ideogram 姿势稿出帧、H3 视频、本地真实界面渲染、官方 outro；含测试报告和问题清单链接
+- [[concepts/poster-reference-matching-tagging]] — 海报参考匹配与打标 v0.2 已实施（2026-09-09）：4538 张 IMP 海报用网关 grok-4.6 打匹配标签（人数/年龄/时代/场景/情绪封闭，物件与主体开放），jina 向量比对，grok 终选 5 张；全量 10.19 美元 3 小时；Cornered Beast 与 Heir 两部样本简报已出；豆包与 Claude API 弃用；飞书 UVSDdJCwJoxy0WxiupFch914neb
 
 ## Entities
 
@@ -93,11 +96,12 @@ Welcome to the team knowledge base.
 - [[entities/lunaverse-backend]] — Lunaverse Backend；本轮核对 IDE 关联边界，其余原日期记录
 - [[entities/lunaverse-client]] — Lunaverse Client；本轮核对 IDE 关联边界，其余原日期记录
 - [[entities/lunaverse-ide]] — Lunaverse IDE；固定主线校准 2026-09-15
-- [[entities/lunaverse-poster-ref]] — Book Cover Match 海报参考站（Railway 线上服务，API token 接入 2026-09-21）
+- [[entities/lunaverse-poster-ref]] — Book Cover Match 海报参考站（2026-09-09 立项，Railway 线上服务）：飞书登录、导出包抽画像或 API 直提 profile、4538 张海报三版本各选 5 张；API token 接入与自动部署 2026-09-21；含页面、数据表、流水线、费用实测
 - [[entities/mob-ai-router]] — Mob AI Router；本轮核对 IDE 关联边界，其余原日期记录
 - [[entities/mob-mini-agent]] — Pi-based company Agent foundation with Moonshot runtime practices, observability, and compaction safety
 - [[entities/mob-sandbox-ops]] — Self-hosted Daytona/OpenHands/Claude Code sandbox platform and operator runbook
 - [[entities/mobai-agent]] — mobai-agent；本轮核对 IDE 关联边界，其余原日期记录
+- [[entities/mobai-image-site]] — mobai 生图网站（Midjourney via Legnext，2026-09-09 立项）：飞书登录限 mobai 租户、参考图存 R2、Legnext 提交与幂等保护、Railway 独立部署；生成链路与生图页已完成，待接真实密钥联调
 - [[entities/vibe-motion]] — AI-driven Remotion motion graphics workspace producing Lunaverse promo videos (9:16 portrait); lunaverse-intro delivered, lunaverse-app-promo iterating (72s + 30s/15s cuts, villain-season real assets, Breeze TTS)
 - [[entities/video-agent-claude-wangbo]] — Claude Code video shot prompt workflow with Seedance gateway, OSS validation, and ablation-backed skill package
 
@@ -105,6 +109,7 @@ Welcome to the team knowledge base.
 
 - [[syntheses/cloud-deployment-architecture]] — Cloud Deployment Architecture；本轮核对 IDE 关联边界，其余原日期记录
 - [[syntheses/data-silence-failure-class]] — 历史｜Data-Silence 失败类（VN Pipeline · 作者漏 render 家族）；非当前 IDE 执行指南
+- [[syntheses/lunaverse-meta-day1-retrospective-2026-10]] — Lunaverse Meta 首日投放复盘（美东 2026-10-28）：CPI 4.77、开场空白流失四成、0 付费、数据口径与下一轮动作
 - [[syntheses/lunaverse-ide-calibration-2026-09]] — Lunaverse IDE Wiki 整体校准 — 2026-09-15；固定主线校准 2026-09-15；最终对齐 main 442fd5369，含补充验证与开发指南撤回记录。
 - [[syntheses/lunaverse-rename-migration]] — 历史｜2026-06 Lunaverse 改名方案（映射失真，禁止直接执行）；非当前 IDE 执行指南
 - [[syntheses/platform-onboarding-guide]] — MobAI 平台全景指南；本轮核对 IDE 关联边界，其余原日期记录
