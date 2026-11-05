@@ -277,3 +277,6 @@ title: Operation Log
 [2026-11-04 21:33] INGEST: raw/2026-11-04-lunaverse-tutor-v1-1-prd.md → concepts/lunaverse-tutor-v1-1 — Tutor v1.1 版本优化文档（飞书 XEUAd…），含 Moons 100 倍待确认方案
 [2026-11-04 21:33] UPDATE: index.md — 新增 concepts/lunaverse-tutor-v1-1
 [2026-11-04 21:33] UPDATE: concepts/iap-sku-pricing — 页首记录 Moons 100 倍待确认方案，现行数字不变
+[2026-11-04 23:46] INGEST: raw/2026-11-04-lunaverse-tasks-and-apple-email-prd.md → concepts/lunaverse-tasks-and-apple-email — 任务列表与 Apple 绑定邮箱 PRD v0.1（飞书 TwZUd…）
+[2026-11-04 23:46] UPDATE: index.md — 新增 concepts/lunaverse-tasks-and-apple-email
+[2026-11-04 23:46] UPDATE: concepts/lunaverse-tutor-v1-1 — 刷新飞书原文导出，新增任务列表关联
