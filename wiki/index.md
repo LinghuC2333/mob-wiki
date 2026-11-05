@@ -78,6 +78,7 @@ Welcome to the team knowledge base.
 - [[concepts/supabase-backend-bootstrap]] — 2026-05-29 backend 生产 Postgres 切 Supabase；fresh-bootstrap 流程（`db push + raw contract SQL`，`BOOTSTRAP_TARGET_DB_NAME` 防呆）；migration 是增量补丁、不支持空库 replay（2026-04-27 option A 决策）；灾备走 DB 备份 / restore
 - [[concepts/unfolded-visual-novel]] — Unfolded 风格互动视觉小说展示形态与素材管线
 - [[concepts/villain-season-demo]] — 恶人季 Heart Signal NA otome 短剧 demo（3 EP + 1 dream，双语 EN+ZH 平行 novel，autoAssign + bonus_only 强制 dream，22 SFX/7 角色/6 BG/3 BGM，英文 Breeze 配音 + TTS 上 R2，机制全覆盖含 Remix/Dream/signal/affection/butterfly/achievement/trick/minigame）
+- [[concepts/ad-creative-pipeline-first-round-2026-11]] — 按作品投放素材制作流程（第一轮测试，2026-11-03）：MJ 定人物图、Ideogram 姿势稿出帧、H3 视频、本地真实界面渲染、官方 outro；含测试报告和问题清单链接
 
 ## Entities
 

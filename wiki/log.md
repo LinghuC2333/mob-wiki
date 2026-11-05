@@ -240,3 +240,5 @@ title: Operation Log
 [2026-09-15 01:21] UPDATE: wiki/concepts/lunaverse-ide-release-and-operations.md — 最终对齐 442fd5369，撤回资料不作现行规范。
 [2026-09-15 01:21] UPDATE: wiki/syntheses/lunaverse-ide-calibration-2026-09.md — 最终对齐 442fd5369，撤回资料不作现行规范。
 [2026-09-15 01:21] UPDATE: wiki/index.md — 最终对齐 442fd5369，撤回资料不作现行规范。
+[2026-11-04 12:00] CREATE: concepts/ad-creative-pipeline-first-round-2026-11 — 第一轮按作品投放素材制作流程和测试报告链接
+[2026-11-04 12:00] UPDATE: index.md — 新增 concepts/ad-creative-pipeline-first-round-2026-11
