@@ -105,6 +105,7 @@ tutor 送 2,000，Discord 送 1,000。新用户第一天最多拿到 3,600 个�
 ## 相关页面
 
 - [[concepts/iap-sku-pricing]] — 现行充值商品和价格
+- [[concepts/lunaverse-tasks-and-apple-email]] — 任务列表、绑定邮箱和新邀请规则
 - [[concepts/lunaverse-new-user-dropoff-tracking]] — 新用户流失埋点需求
 - [[entities/lunaverse-client]] — 客户端
 - [[entities/lunaverse-backend]] — 后端
