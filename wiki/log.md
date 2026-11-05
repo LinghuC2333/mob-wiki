@@ -274,3 +274,6 @@ title: Operation Log
 [2026-11-02 12:30] UPDATE: index.md — 新增 concepts/lunaverse-new-user-dropoff-tracking
 [2026-11-04 12:00] CREATE: concepts/ad-creative-pipeline-first-round-2026-11 — 第一轮按作品投放素材制作流程和测试报告链接
 [2026-11-04 12:00] UPDATE: index.md — 新增 concepts/ad-creative-pipeline-first-round-2026-11
+[2026-11-04 21:33] INGEST: raw/2026-11-04-lunaverse-tutor-v1-1-prd.md → concepts/lunaverse-tutor-v1-1 — Tutor v1.1 版本优化文档（飞书 XEUAd…），含 Moons 100 倍待确认方案
+[2026-11-04 21:33] UPDATE: index.md — 新增 concepts/lunaverse-tutor-v1-1
+[2026-11-04 21:33] UPDATE: concepts/iap-sku-pricing — 页首记录 Moons 100 倍待确认方案，现行数字不变

@@ -62,6 +62,7 @@ Welcome to the team knowledge base.
 - [[concepts/lunaverse-ide-release-and-operations]] — Lunaverse IDE — 发布、工程恢复与维护验收；固定主线校准 2026-09-15
 - [[concepts/lunaverse-ide-skills-and-production]] — Lunaverse IDE — 技能分发与生产执行；固定主线校准 2026-09-15
 - [[concepts/lunaverse-new-user-dropoff-tracking]] — Lunaverse 新用户流失埋点需求 v0.1（2026-11-02，待评审）：开场视频通过率 22%，同步 tutor 性别年龄到分析库，新增 6 个视频和退出事件，按阶段拆性别年龄
+- [[concepts/lunaverse-tutor-v1-1]] — Lunaverse Tutor v1.1 版本优化（2026-11-04，待评审）：删邮箱和游客登录、tutor 奖励和 Discord 弹窗、Moons 100 倍方案（待确认）、通用领取埋点
 - [[concepts/matting-v10-sharpen-alpha-bug-2026-05-28]] — 历史｜V10 抠图遗漏 sharpen_alpha bug + 修复（2026-05-28）；非当前 IDE 执行指南
 - [[concepts/moonshort-ide-uiux-audit-2026-06]] — 历史｜Moonshort IDE UI/UX Audit + Fix Log (2026-06)；非当前 IDE 执行指南
 - [[concepts/mp-cross-signal-author-guidance]] — MP Cross-Signal Author Guidance；本轮核对 IDE 关联边界，其余原日期记录
