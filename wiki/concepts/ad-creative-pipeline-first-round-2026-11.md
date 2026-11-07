@@ -1,6 +1,9 @@
 ---
 title: 按作品投放素材制作流程（第一轮测试，2026-11-03）
-updated: 2026-11-04
+tags: [ad, video, pipeline]
+sources: [raw/2026-11-07-mixreel-0.0.1-and-script-method.md]
+created: 2026-11-04
+updated: 2026-11-07
 ---
 
 # 按作品投放素材制作流程（第一轮测试）
@@ -28,4 +31,4 @@ updated: 2026-11-04
 - 片子都到 27 秒以上，超过原来 15 到 20 秒的规矩，等投放数据再定。
 - 网关几个问题待工程师处理：视频 dryRun 不报错、Ideogram 原样返回照收费、GPT 单价和余额查不到。
 
-公司对素材的完整要求在项目 `brand/素材要求.md`。模型特性还没写进 MixReel，待整体重写。
+公司对素材的完整要求在项目 `brand/素材要求.md`。模型特性 11-05 已写进 MixReel。这一轮暴露的返工多半出在脚本，11-06 起写脚本的方法整体改了，见 [[concepts/mixreel-script-method-2026-11]]；创意和返工记在 [[concepts/ad-idea-ledger]]。

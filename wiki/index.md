@@ -84,6 +84,8 @@ Welcome to the team knowledge base.
 - [[concepts/unfolded-visual-novel]] — Unfolded 风格互动视觉小说展示形态与素材管线
 - [[concepts/villain-season-demo]] — 恶人季 Heart Signal NA otome 短剧 demo（3 EP + 1 dream，双语 EN+ZH 平行 novel，autoAssign + bonus_only 强制 dream，22 SFX/7 角色/6 BG/3 BGM，英文 Breeze 配音 + TTS 上 R2，机制全覆盖含 Remix/Dream/signal/affection/butterfly/achievement/trick/minigame）
 - [[concepts/ad-creative-pipeline-first-round-2026-11]] — 按作品投放素材制作流程（第一轮测试，2026-11-03）：MJ 定人物图、Ideogram 姿势稿出帧、H3 视频、本地真实界面渲染、官方 outro；含测试报告和问题清单链接
+- [[concepts/mixreel-script-method-2026-11]] — MixReel 写脚本方法 2026-11 改版：先写主旨、借被验证过的高潮、按拍写镜头、多镜头必做 Blender 分镜、复述测试；含三轮评测和三条实做耗时
+- [[concepts/ad-idea-ledger]] — 投放创意账本：飞书「投放素材库」创意表的口径、结构和读写身份，被否原因记在 audience-taste
 - [[concepts/poster-reference-matching-tagging]] — 海报参考匹配与打标 v0.2 已实施（2026-09-09）：4538 张 IMP 海报用网关 grok-4.6 打匹配标签（人数/年龄/时代/场景/情绪封闭，物件与主体开放），jina 向量比对，grok 终选 5 张；全量 10.19 美元 3 小时；Cornered Beast 与 Heir 两部样本简报已出；豆包与 Claude API 弃用；飞书 UVSDdJCwJoxy0WxiupFch914neb
 
 ## Entities
@@ -105,6 +107,7 @@ Welcome to the team knowledge base.
 - [[entities/mobai-agent]] — mobai-agent；本轮核对 IDE 关联边界，其余原日期记录
 - [[entities/mobai-image-site]] — mobai 生图网站（Midjourney via Legnext，2026-09-09 立项）：飞书登录限 mobai 租户、参考图存 R2、Legnext 提交与幂等保护、Railway 独立部署；生成链路与生图页已完成，待接真实密钥联调
 - [[entities/vibe-motion]] — AI-driven Remotion motion graphics workspace producing Lunaverse promo videos (9:16 portrait); lunaverse-intro delivered, lunaverse-app-promo iterating (72s + 30s/15s cuts, villain-season real assets, Breeze TTS)
+- [[entities/mixreel]] — MixReel 广告视频技能，团队版和公开版两个仓库、手工同步规矩、0.0.1 发布（2026-11-07）
 - [[entities/video-agent-claude-wangbo]] — Claude Code video shot prompt workflow with Seedance gateway, OSS validation, and ablation-backed skill package
 
 ## Syntheses

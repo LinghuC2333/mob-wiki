@@ -280,3 +280,8 @@ title: Operation Log
 [2026-11-04 23:46] INGEST: raw/2026-11-04-lunaverse-tasks-and-apple-email-prd.md → concepts/lunaverse-tasks-and-apple-email — 任务列表与 Apple 绑定邮箱 PRD v0.1（飞书 TwZUd…）
 [2026-11-04 23:46] UPDATE: index.md — 新增 concepts/lunaverse-tasks-and-apple-email
 [2026-11-04 23:46] UPDATE: concepts/lunaverse-tutor-v1-1 — 刷新飞书原文导出，新增任务列表关联
+[2026-11-07 17:30] INGEST: raw/2026-11-07-mixreel-0.0.1-and-script-method.md → entities/mixreel — 两个仓库、钟文鼎定的手工同步规矩、0.0.1 发布
+[2026-11-07 17:30] INGEST: raw/2026-11-07-mixreel-0.0.1-and-script-method.md → concepts/mixreel-script-method-2026-11 — 写脚本方法改版、三轮评测、三条实做耗时
+[2026-11-07 17:30] INGEST: raw/2026-11-07-mixreel-0.0.1-and-script-method.md → concepts/ad-idea-ledger — 投放创意账本口径、结构和读写身份
+[2026-11-07 17:30] UPDATE: concepts/ad-creative-pipeline-first-round-2026-11 — 改掉「模型特性还没写进 MixReel」，指向新方法页和账本页
+[2026-11-07 17:30] UPDATE: index.md — 新增 entities/mixreel、concepts/mixreel-script-method-2026-11、concepts/ad-idea-ledger
